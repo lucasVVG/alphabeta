@@ -100,18 +100,23 @@ with function minmax'_list f bo ll v =
   end
 
 (* MINMAX LIST LEMMA IN *)
-
 let rec lemma minmax'_list_in (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
   variant { l }
   ensures {
     let score = minmax'_list f true l v in
-    v<>score -> exists e. mem e l /\ minmax' f e true = score
+    sv=score \/ (exists e. mem e l /\ minmax' f e true = score)
   }
   ensures {
     let score = minmax'_list f false l v in
-    v<>score -> exists e. mem e l /\ minmax' f e false = score
+    v=score \/ (exists e. mem e l /\ minmax' f e false = score)
   }
-  ()
+  let scoreM = minmax'_list f true l v in
+  let scorem = minmax'_list f false l v in
+  match l with
+  | Nil -> ()
+  | Cons e l' ->
+    minmax'_list_in f l' v
+  end
 
 (* MINMAX LIST LEMMA MIN-MAX *)
 let rec lemma mimax'_list_max
