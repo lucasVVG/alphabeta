@@ -33,142 +33,105 @@
  <goal name="minmax&#39;_list&#39;vc" expl="VC for minmax&#39;_list" proved="true">
  <proof prover="0"><result status="valid" time="0.013801" steps="90"/></proof>
  </goal>
- <goal name="minmax&#39;_list_in&#39;vc" expl="VC for minmax&#39;_list_in">
- <proof prover="0"><result status="timeout" time="1.000000" steps="12005"/></proof>
- <proof prover="1"><result status="timeout" time="1.000000"/></proof>
- <proof prover="2"><result status="timeout" time="1.067056" steps="191992"/></proof>
- <transf name="split_vc" >
-  <goal name="minmax&#39;_list_in&#39;vc.0" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.012434" steps="45"/></proof>
+ <goal name="minmax&#39;_list_max_in&#39;vc" expl="VC for minmax&#39;_list_max_in" proved="true">
+ <proof prover="0"><result status="valid" time="0.107580" steps="1173"/></proof>
+ <proof prover="1" obsolete="true"><result status="valid" time="0.151533" steps="332070"/></proof>
+ </goal>
+ <goal name="minmax&#39;_list_min_in&#39;vc" expl="VC for minmax&#39;_list_min_in" proved="true">
+ <proof prover="0"><result status="valid" time="0.117410" steps="1082"/></proof>
+ <proof prover="1"><result status="valid" time="0.534892" steps="1339733"/></proof>
+ </goal>
+ <goal name="mimax&#39;_list_max&#39;vc" expl="VC for mimax&#39;_list_max" proved="true">
+ <transf name="split_vc" proved="true" >
+  <goal name="mimax&#39;_list_max&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.017268" steps="62"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_in&#39;vc.1" expl="postcondition">
-  <proof prover="0"><result status="timeout" time="1.000000" steps="18477"/></proof>
-  <proof prover="1"><result status="timeout" time="1.000000"/></proof>
-  <proof prover="2"><result status="timeout" time="1.000000" steps="490999"/></proof>
-  <transf name="split_vc" >
-   <goal name="minmax&#39;_list_in&#39;vc.1.0" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.013936" steps="12"/></proof>
-   </goal>
-   <goal name="minmax&#39;_list_in&#39;vc.1.1" expl="postcondition">
-   <proof prover="0"><result status="timeout" time="1.000000" steps="8987"/></proof>
-   <proof prover="1"><result status="timeout" time="1.000000"/></proof>
-   <proof prover="2"><result status="timeout" time="1.000000" steps="147127"/></proof>
-   </goal>
-  </transf>
+  <goal name="mimax&#39;_list_max&#39;vc.1" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.018816" steps="62"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_in&#39;vc.2" expl="postcondition">
-  <proof prover="0"><result status="timeout" time="1.000000" steps="10739"/></proof>
-  <proof prover="1"><result status="timeout" time="1.000000"/></proof>
-  <proof prover="2"><result status="timeout" time="1.000000" steps="562240"/></proof>
-  <transf name="split_vc" >
-   <goal name="minmax&#39;_list_in&#39;vc.2.0" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.013264" steps="15"/></proof>
+  <goal name="mimax&#39;_list_max&#39;vc.2" expl="postcondition" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="mimax&#39;_list_max&#39;vc.2.0" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.017805" steps="23"/></proof>
    </goal>
-   <goal name="minmax&#39;_list_in&#39;vc.2.1" expl="postcondition">
+   <goal name="mimax&#39;_list_max&#39;vc.2.1" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.273540" steps="2388"/></proof>
    </goal>
   </transf>
   </goal>
  </transf>
  </goal>
- <goal name="mimax&#39;_list_max&#39;vc" expl="VC for mimax&#39;_list_max">
- <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="10578"/></proof>
- <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
- <proof prover="2" obsolete="true"><result status="unknown" time="0.033838" steps="10648"/></proof>
+ <goal name="minmax&#39;_list_upper_extend_true" proved="true">
+ <proof prover="0"><result status="valid" time="0.056100" steps="622"/></proof>
  </goal>
- <goal name="minmax&#39;_list_max_extend&#39;vc" expl="VC for minmax&#39;_list_max_extend">
- <transf name="split_vc" >
-  <goal name="minmax&#39;_list_max_extend&#39;vc.0" expl="variant decrease">
-  <proof prover="0" obsolete="true"><result status="valid" time="0.015618" steps="75"/></proof>
-  </goal>
-  <goal name="minmax&#39;_list_max_extend&#39;vc.1" expl="postcondition">
-  <proof prover="2" obsolete="true"><result status="valid" time="0.050263" steps="19030"/></proof>
-  </goal>
- </transf>
+ <goal name="minmax&#39;_list_upper_extend_false" proved="true">
+ <proof prover="0"><result status="valid" time="0.076448" steps="634"/></proof>
  </goal>
- <goal name="minmax&#39;_list_min_extend&#39;vc" expl="VC for minmax&#39;_list_min_extend">
- <proof prover="0" obsolete="true"><result status="valid" time="0.023195" steps="231"/></proof>
+ <goal name="minmax&#39;_list_lower_extend_true" proved="true">
+ <proof prover="0"><result status="valid" time="0.098968" steps="681"/></proof>
  </goal>
- <goal name="minmax&#39;_list_upper_extend_true">
- <proof prover="0" obsolete="true"><result status="valid" time="0.056100" steps="622"/></proof>
+ <goal name="minmax&#39;_list_lower_extend_false" proved="true">
+ <proof prover="0"><result status="valid" time="0.080494" steps="702"/></proof>
  </goal>
- <goal name="minmax&#39;_list_upper_extend_false">
- <proof prover="0" obsolete="true"><result status="valid" time="0.076448" steps="633"/></proof>
- </goal>
- <goal name="minmax&#39;_list_lower_extend_true">
- <proof prover="0" obsolete="true"><result status="valid" time="0.098968" steps="678"/></proof>
- </goal>
- <goal name="minmax&#39;_list_lower_extend_false">
- <proof prover="0" obsolete="true"><result status="valid" time="0.080494" steps="702"/></proof>
- </goal>
- <goal name="minmax&#39;_list_extendscore_true&#39;vc" expl="VC for minmax&#39;_list_extendscore_true">
+ <goal name="minmax&#39;_list_extendscore_true&#39;vc" expl="VC for minmax&#39;_list_extendscore_true" proved="true">
  <proof prover="0" obsolete="true"><result status="valid" time="0.072333" steps="999"/></proof>
- <transf name="split_vc" >
-  <goal name="minmax&#39;_list_extendscore_true&#39;vc.0" expl="variant decrease">
-  <proof prover="0" obsolete="true"><result status="valid" time="0.014266" steps="131"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="minmax&#39;_list_extendscore_true&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.014266" steps="132"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_extendscore_true&#39;vc.1" expl="precondition">
+  <goal name="minmax&#39;_list_extendscore_true&#39;vc.1" expl="precondition" proved="true">
   <proof prover="0" obsolete="true"><result status="valid" time="0.007276" steps="48"/></proof>
-  <transf name="split_vc" >
-   <goal name="minmax&#39;_list_extendscore_true&#39;vc.1.0" expl="precondition">
-   <proof prover="0" obsolete="true"><result status="valid" time="0.013942" steps="48"/></proof>
+  <transf name="split_vc" proved="true" >
+   <goal name="minmax&#39;_list_extendscore_true&#39;vc.1.0" expl="precondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.013942" steps="48"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="minmax&#39;_list_extendscore_true&#39;vc.2" expl="postcondition">
-  <transf name="split_vc" >
-   <goal name="minmax&#39;_list_extendscore_true&#39;vc.2.0" expl="postcondition">
-   <proof prover="0" obsolete="true"><result status="valid" time="0.013424" steps="20"/></proof>
+  <goal name="minmax&#39;_list_extendscore_true&#39;vc.2" expl="postcondition" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="minmax&#39;_list_extendscore_true&#39;vc.2.0" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.028152" steps="20"/></proof>
    </goal>
-   <goal name="minmax&#39;_list_extendscore_true&#39;vc.2.1" expl="postcondition">
-   <proof prover="0" obsolete="true"><result status="valid" time="0.028152" steps="237"/></proof>
+   <goal name="minmax&#39;_list_extendscore_true&#39;vc.2.1" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.013424" steps="238"/></proof>
    </goal>
   </transf>
   </goal>
  </transf>
  </goal>
- <goal name="minmax&#39;_list_infscore_true&#39;vc" expl="VC for minmax&#39;_list_infscore_true">
- <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="13229"/></proof>
- <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
- <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="274357"/></proof>
- <transf name="split_vc" >
-  <goal name="minmax&#39;_list_infscore_true&#39;vc.0" expl="precondition">
-  <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="12096"/></proof>
-  <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="213594"/></proof>
+ <goal name="minmax&#39;_list_infscore_true&#39;vc" expl="VC for minmax&#39;_list_infscore_true" proved="true">
+ <transf name="split_vc" proved="true" >
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.048837" steps="195"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_infscore_true&#39;vc.1" expl="precondition">
-  <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="10669"/></proof>
-  <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="205701"/></proof>
-  <transf name="split_vc" >
-   <goal name="minmax&#39;_list_infscore_true&#39;vc.1.0" expl="precondition">
-   <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="11845"/></proof>
-   <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
-   <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="187449"/></proof>
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.1" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.050411" steps="441"/></proof>
+  </goal>
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.2" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.041570" steps="196"/></proof>
+  </goal>
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.3" expl="precondition" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="minmax&#39;_list_infscore_true&#39;vc.3.0" expl="precondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.058398" steps="455"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="minmax&#39;_list_infscore_true&#39;vc.2" expl="postcondition">
-  <proof prover="0" obsolete="true"><result status="valid" time="0.033552" steps="401"/></proof>
-  <transf name="split_vc" >
-   <goal name="minmax&#39;_list_infscore_true&#39;vc.2.0" expl="postcondition">
-   <proof prover="0" obsolete="true"><result status="valid" time="0.013965" steps="8"/></proof>
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.4" expl="postcondition" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="minmax&#39;_list_infscore_true&#39;vc.4.0" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.015263" steps="8"/></proof>
    </goal>
-   <goal name="minmax&#39;_list_infscore_true&#39;vc.2.1" expl="postcondition">
-   <proof prover="0" obsolete="true"><result status="valid" time="0.015263" steps="29"/></proof>
+   <goal name="minmax&#39;_list_infscore_true&#39;vc.4.1" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.013965" steps="29"/></proof>
    </goal>
-   <goal name="minmax&#39;_list_infscore_true&#39;vc.2.2" expl="postcondition">
-   <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="12416"/></proof>
-   <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
-   <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="171175"/></proof>
-   <transf name="split_vc" >
-    <goal name="minmax&#39;_list_infscore_true&#39;vc.2.2.0" expl="postcondition">
-    <proof prover="0" obsolete="true"><result status="valid" time="0.027352" steps="439"/></proof>
+   <goal name="minmax&#39;_list_infscore_true&#39;vc.4.2" expl="postcondition" proved="true">
+   <transf name="split_vc" proved="true" >
+    <goal name="minmax&#39;_list_infscore_true&#39;vc.4.2.0" expl="postcondition" proved="true">
+    <proof prover="0"><result status="valid" time="0.086789" steps="711"/></proof>
     </goal>
-    <goal name="minmax&#39;_list_infscore_true&#39;vc.2.2.1" expl="postcondition">
-    <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="11663"/></proof>
-    <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
-    <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="189827"/></proof>
+    <goal name="minmax&#39;_list_infscore_true&#39;vc.4.2.1" expl="postcondition" proved="true">
+    <proof prover="2"><result status="valid" time="0.327813" steps="60070"/></proof>
     </goal>
    </transf>
    </goal>
@@ -197,40 +160,24 @@
    <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="106249"/></proof>
    <transf name="split_vc" >
     <goal name="minmax&#39;_list_spec&#39;vc.3.0.0" expl="postcondition">
-    <transf name="split_vc" >
-     <goal name="minmax&#39;_list_spec&#39;vc.3.0.0.0" expl="postcondition">
-     <transf name="case" arg1="bo">
-      <goal name="minmax&#39;_list_spec&#39;vc.3.0.0.0.0" expl="true case (postcondition)">
-      <proof prover="0" obsolete="true"><result status="valid" time="0.019732" steps="65"/></proof>
-      </goal>
-      <goal name="minmax&#39;_list_spec&#39;vc.3.0.0.0.1" expl="false case (postcondition)">
-      <proof prover="0" obsolete="true"><result status="valid" time="0.012035" steps="52"/></proof>
-      </goal>
-     </transf>
-     </goal>
-     <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1" expl="postcondition">
-     </goal>
-    </transf>
-    </goal>
-    <goal name="minmax&#39;_list_spec&#39;vc.3.0.1" expl="postcondition">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="8595"/></proof>
     <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
     <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="132892"/></proof>
     <transf name="split_vc" >
-     <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0" expl="postcondition">
+     <goal name="minmax&#39;_list_spec&#39;vc.3.0.0.0" expl="postcondition">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="6680"/></proof>
      <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
      <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="167261"/></proof>
      <transf name="destruct" arg1="Ensures1">
       <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0" expl="postcondition">
-      <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="7741"/></proof>
-      <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
-      <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="121262"/></proof>
-      </goal>
-      <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.1" expl="postcondition">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="7259"/></proof>
       <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
       <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="116690"/></proof>
+      </goal>
+      <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.1" expl="postcondition">
+      <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="7741"/></proof>
+      <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
+      <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="121262"/></proof>
       </goal>
      </transf>
      </goal>
@@ -238,6 +185,22 @@
      <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="8402"/></proof>
      <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
      <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="150665"/></proof>
+     </goal>
+    </transf>
+    </goal>
+    <goal name="minmax&#39;_list_spec&#39;vc.3.0.1" expl="postcondition">
+    <transf name="split_vc" >
+     <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0" expl="postcondition">
+     <transf name="case" arg1="bo">
+      <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0" expl="true case (postcondition)">
+      <proof prover="0" obsolete="true"><result status="valid" time="0.019732" steps="65"/></proof>
+      </goal>
+      <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.1" expl="false case (postcondition)">
+      <proof prover="0" obsolete="true"><result status="valid" time="0.012035" steps="52"/></proof>
+      </goal>
+     </transf>
+     </goal>
+     <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1" expl="postcondition">
      </goal>
     </transf>
     </goal>
@@ -261,7 +224,7 @@
   <proof prover="0" obsolete="true"><result status="valid" time="0.013557" steps="107"/></proof>
   </goal>
   <goal name="minmax&#39;vc.2" expl="precondition">
-  <proof prover="0" obsolete="true"><result status="valid" time="0.004802" steps="107"/></proof>
+  <proof prover="0" obsolete="true"><result status="valid" time="0.009273" steps="107"/></proof>
   </goal>
   <goal name="minmax&#39;vc.3" expl="precondition">
   <proof prover="0" obsolete="true"><result status="valid" time="0.005860" steps="26"/></proof>
@@ -273,7 +236,7 @@
   <proof prover="0" obsolete="true"><result status="valid" time="0.012370" steps="107"/></proof>
   </goal>
   <goal name="minmax&#39;vc.6" expl="precondition">
-  <proof prover="0" obsolete="true"><result status="valid" time="0.009273" steps="107"/></proof>
+  <proof prover="0" obsolete="true"><result status="valid" time="0.004802" steps="107"/></proof>
   </goal>
   <goal name="minmax&#39;vc.7" expl="precondition">
   <proof prover="0" obsolete="true"><result status="valid" time="0.009435" steps="26"/></proof>
@@ -284,6 +247,19 @@
  <proof prover="0" obsolete="true"><result status="unknown" time="0.518305"/></proof>
  <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
  <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="427041"/></proof>
+ </goal>
+ <goal name="minmax&#39;_list_max_extend&#39;vc" expl="VC for minmax&#39;_list_max_extend">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_max_extend&#39;vc.0" expl="variant decrease">
+  <proof prover="0" obsolete="true"><result status="valid" time="0.015618" steps="75"/></proof>
+  </goal>
+  <goal name="minmax&#39;_list_max_extend&#39;vc.1" expl="postcondition">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.050263" steps="19030"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="minmax&#39;_list_min_extend&#39;vc" expl="VC for minmax&#39;_list_min_extend">
+ <proof prover="0" obsolete="true"><result status="valid" time="0.023195" steps="231"/></proof>
  </goal>
 </theory>
 </file>

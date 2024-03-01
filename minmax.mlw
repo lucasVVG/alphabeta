@@ -83,6 +83,7 @@ let rec lemma height_list_max (l:list (arbre 'a)) =
       | N l -> 
 } *)
 
+
 let rec function minmax' (f:'a -> int63) (t:arbre 'a) (bo:bool) =
   variant { t }
   match t with
@@ -100,22 +101,36 @@ with function minmax'_list f bo ll v =
   end
 
 (* MINMAX LIST LEMMA IN *)
-let rec lemma minmax'_list_in (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
+let rec lemma minmax'_list_max_in (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
   variant { l }
   ensures {
     let score = minmax'_list f true l v in
-    sv=score \/ (exists e. mem e l /\ minmax' f e true = score)
+    (v=score \/ (exists e. mem e l /\ minmax' f e false = score)) /\ score>=v
   }
-  ensures {
-    let score = minmax'_list f false l v in
-    v=score \/ (exists e. mem e l /\ minmax' f e false = score)
-  }
-  let scoreM = minmax'_list f true l v in
-  let scorem = minmax'_list f false l v in
   match l with
   | Nil -> ()
   | Cons e l' ->
-    minmax'_list_in f l' v
+    let v1 = minmax' f e false in
+    if v1 > v then
+      minmax'_list_max_in f l' v1
+    else
+      minmax'_list_max_in f l' v
+  end
+  
+let rec lemma minmax'_list_min_in (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
+  variant { l }
+  ensures {
+    let score = minmax'_list f false l v in
+    (v=score \/ exists e. mem e l /\ minmax' f e true = score) /\ score<=v
+  }
+  match l with
+  | Nil -> ()
+  | Cons e l' ->
+    let v1 = minmax' f e true in
+    if v1 < v then
+      minmax'_list_min_in f l' v1
+    else
+      minmax'_list_min_in f l' v
   end
 
 (* MINMAX LIST LEMMA MIN-MAX *)
@@ -124,33 +139,20 @@ let rec lemma mimax'_list_max
   variant { l }
   ensures {
     let score = minmax'_list f true l v in
-    (v = score \/
-    exists e:arbre 'a. mem e l /\ minmax' f e false = score) /\
-    forall e:arbre 'a. mem e l -> minmax' f e false <= score
+    forall e:arbre 'a. mem e l -> score >= minmax' f e false
   }
-  ()
-
-let rec lemma minmax'_list_max_extend
-  (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
-  variant { l }
-  ensures { minmax'_list f true l v >= v }
   match l with
   | Nil -> ()
-  | Cons e l ->
-    let v' = int63_max v (minmax' f e false) in
-    minmax'_list_max_extend f l v'
+  | Cons e l' ->
+    let v1 = minmax' f e false in
+    if v1 >= v then
+      mimax'_list_max f l' v1
+    else
+      mimax'_list_max f l' v
   end
 
-let rec lemma minmax'_list_min_extend
-  (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
-  variant { l }
-  ensures { minmax'_list f false l v <= v }
-  match l with
-  | Nil -> ()
-  | Cons e l ->
-    let v' = int63_min v (minmax' f e true) in
-    minmax'_list_min_extend f l v'
-  end
+(* TODO minmax'_list_min *)
+ 
 
 
 
@@ -248,13 +250,13 @@ let rec lemma minmax'_list_infscore_true
     match l with
     | Nil -> ()
     | Cons e l' ->
-      let score = minmax'_list f false l v in
-      let v'' = int63_max v' (minmax' f e false) in
-      if (v''>=score) then minmax'_list_extendscore_true f l' v v'
-      else minmax'_list_extendscore_true f l' v'' v'
+      let score = minmax'_list f true l' v in
+      let v2 = int63_max v' (minmax' f e false) in
+      if (v2>=score) then minmax'_list_infscore_true f l' v2 v'
+      else minmax'_list_infscore_true f l' v2 v'
     end
 
-
+(* TODO minmax_list_supscore_false *)
 
 let rec lemma minmax'_spec (f:'a -> int63) (t:arbre 'a) (bo:bool) : unit =
   variant { t }
