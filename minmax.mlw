@@ -348,6 +348,7 @@ with lemma minmax'_list_spec (f:'a -> int63) (l: list (arbre 'a)) (bo:bool) (v: 
 
 let rec minmax (t:arbre 'a) (bo:bool) (f:'a -> int63) =
   variant { height t }
+  ensures { result = minmax' f t bo }
   match t with
   | N info Nil -> f info
   | N _ l -> 
@@ -355,10 +356,11 @@ let rec minmax (t:arbre 'a) (bo:bool) (f:'a -> int63) =
       let rec loop ll v =
         variant { ll }
         requires { forall x. mem x ll -> height x < height t }
+        ensures { result = minmax'_list f true ll v }
         match ll with
         | Nil -> v
         | Cons e l' ->
-          let v' =  int63_min v (minmax e false f) in
+          let v' =  int63_max v (minmax e false f) in
           loop l' v'
         end
       in
@@ -367,10 +369,11 @@ let rec minmax (t:arbre 'a) (bo:bool) (f:'a -> int63) =
       let rec loop ll v =
         variant { ll }
         requires { forall x. mem x ll -> height x < height t }
+        ensures { result = minmax'_list f false ll v }
         match ll with
         | Nil -> v
         | Cons e l' ->
-          let v' =  int63_max v (minmax e true f) in
+          let v' =  int63_min v (minmax e true f) in
           loop l' v'
         end
       in
@@ -378,37 +381,80 @@ let rec minmax (t:arbre 'a) (bo:bool) (f:'a -> int63) =
   end
 
 
-
-
-let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) =
+(*
+let rec function minmax' (f:'a -> int63) (t:arbre 'a) (bo:bool) =
   variant { t }
   match t with
   | N info Nil -> f info
   | N _ l -> 
-    if bo then
-      let rec loop l v b =
-        variant { l }
-        match l with
-        | Nil -> v
-        | Cons e l' ->
-          let v' =  int63_min v (alphabeta e (not bo) f a b) in
-          if v' >= b then v'
-          else
-            loop l' v' (int63_min v' b)
-        end
-      in
-      loop l min_int b
-    else
-      let rec loop l v a =
-        variant { l }
-        match l with
-        | Nil -> v
-        | Cons e l' ->
-          let v' =  int63_max v (alphabeta e (not bo) f a b) in
-          if v' <= a then v'
-          else
-            loop l' v' (int63_max v' a)
-        end
-      in
-      loop l max_int a
+    minmax'_list f bo l (if bo then min_int else max_int)
   end
+with function minmax'_list f bo ll v =
+  variant { ll }
+  match ll with
+  | Nil -> v
+  | Cons e l' -> 
+    let v' =  (if bo then int63_max else int63_min) v (minmax' f e (not bo)) in
+    minmax'_list f bo l' v'
+  end
+*)
+
+type flag =
+  | InfAlpha
+  | SupBeta
+  | InBounds
+
+
+
+let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (int63 , ghost flag) =
+  variant { height t }
+  ensures { a = min_int /\ b = max_int -> result = minmax' f t bo }
+  match t with
+  | N info Nil -> 
+    let v = f info in
+    v, (if v<a then InfAlpha else if v>b then SupBeta else InBounds)
+  | N _ l -> 
+    if bo then
+      let rec loop ll v a (ghost fv : flag) =
+        variant { ll }
+        requires { forall x. mem x ll -> height x < height t }
+        ensures { result = minmax'_list f true ll v }
+        match ll with
+        | Nil -> v, fv
+        | Cons e l' -> 
+          let (r,f) = alphabeta e (not bo) f a b in
+          let v', f' =
+            if r > v then
+              r,f
+            else
+              v, fv
+          in
+          if v' >= b then (v', SupBeta)
+          else
+            loop l' v' (int63_max v' a) f'
+        end
+      in
+      loop l min_int a InfAlpha
+    else
+      let rec loop ll v b (ghost fv : flag) =
+        variant { ll }
+        requires { forall x. mem x ll -> height x < height t }
+        ensures { result = minmax'_list f false ll v }
+        match ll with
+        | Nil -> v, fv
+        | Cons e l' ->
+          let (r,f) = alphabeta e (not bo) f a b in
+          let v', f' =
+            if r < v then
+              r,f
+            else
+              v, fv
+          in
+          if v' <= a then (v', InfAlpha)
+          else
+            loop l' v' (int63_min v' b) f' 
+        end
+      in
+      loop l max_int b SupBeta
+  end
+
