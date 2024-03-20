@@ -2,6 +2,8 @@ use int.Int
 use int.MinMax
 use mach.int.Int63
 use list.List
+use list.Reverse
+use list.Append
 use list.HdTl
 use list.FoldLeft
 use list.Mem
@@ -313,6 +315,14 @@ let rec lemma minmax'_list_supscore_false
       else minmax'_list_supscore_false f l' v2 v'
     end
 
+(* MINMAX LIST rev l <=> l *)
+let rec lemma minmax'_list_rev_l
+  (f:'a -> int63) (l:list (arbre 'a)) (bo:bool) (v: int63) =
+   variant { l }
+   ensures { minmax'_list f bo l v = minmax'_list f bo (reverse l) v }
+   ()
+
+
 
 let rec lemma minmax'_spec (f:'a -> int63) (t:arbre 'a) (bo:bool) : unit =
   variant { t }
@@ -406,19 +416,39 @@ type flag =
 
 
 
-let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (int63 , ghost flag) =
+let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int63 , ghost bound: flag) =
   variant { height t }
-  ensures { a = min_int /\ b = max_int -> result = minmax' f t bo }
+  ensures {
+    match bound with
+    | InBounds -> a <= res <= b /\ res = minmax' f t bo
+    | InfAlpha -> minmax' f t bo <= res <= a
+    | SupBeta  -> minmax' f t bo >= res >= b
+    end
+  }
   match t with
   | N info Nil -> 
     let v = f info in
     v, (if v<a then InfAlpha else if v>b then SupBeta else InBounds)
   | N _ l -> 
     if bo then
-      let rec loop ll v a (ghost fv : flag) =
+      let rec loop ll v a (ghost fv : flag) (ghost l0): (res : int63, ghost bound: flag) =
         variant { ll }
         requires { forall x. mem x ll -> height x < height t }
-        ensures { result = minmax'_list f true ll v }
+        requires { l = reverse l0 ++ ll }
+        requires {
+          match fv with
+          | InBounds -> a <= v <= b /\ v =  minmax'_list f true l0 min_int (* TODO prouver que minmax'_list ... l ... = minmax'_list ... (rev l) ... *)
+          | InfAlpha -> minmax'_list f true l0 min_int <= v <= a
+          | SupBeta  -> minmax'_list f true l0 min_int >= v >= b
+          end
+        }
+        ensures { 
+          match bound with
+          | InBounds -> a <= res <= b /\ res = minmax'_list f true l min_int
+          | InfAlpha -> minmax'_list f true l min_int <= res <= a
+          | SupBeta  -> minmax'_list f true l min_int >= res >= b
+          end
+        }
         match ll with
         | Nil -> v, fv
         | Cons e l' -> 
@@ -431,15 +461,29 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (int63 , 
           in
           if v' >= b then (v', SupBeta)
           else
-            loop l' v' (int63_max v' a) f'
+            loop l' v' (int63_max v' a) f' (Cons e l0)
         end
       in
-      loop l min_int a InfAlpha
+      loop l min_int a InfAlpha Nil
     else
-      let rec loop ll v b (ghost fv : flag) =
+      let rec loop ll v b (ghost fv : flag) (ghost l0) : (res : int63, ghost bound: flag) =
         variant { ll }
         requires { forall x. mem x ll -> height x < height t }
-        ensures { result = minmax'_list f false ll v }
+        requires { l = reverse l0 ++ ll }
+        requires {
+          match fv with
+          | InBounds -> a <= v <= b /\ v =  minmax'_list f false l0 max_int (* TODO prouver que minmax'_list ... l ... = minmax'_list ... (rev l) ... *)
+          | InfAlpha -> minmax'_list f false l0 max_int  <= v <= a
+          | SupBeta  -> minmax'_list f false l0 max_int  >= v >= b
+          end
+        }
+        ensures { 
+          match bound with
+          | InBounds -> a <= res <= b /\ res = minmax'_list f false l max_int 
+          | InfAlpha -> minmax'_list f false l max_int  <= res <= a
+          | SupBeta  -> minmax'_list f false l max_int  >= res >= b
+          end
+        }
         match ll with
         | Nil -> v, fv
         | Cons e l' ->
@@ -452,9 +496,9 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (int63 , 
           in
           if v' <= a then (v', InfAlpha)
           else
-            loop l' v' (int63_min v' b) f' 
+            loop l' v' (int63_min v' b) f' (Cons e l0)
         end
       in
-      loop l max_int b SupBeta
+      loop l max_int b SupBeta Nil
   end
 
