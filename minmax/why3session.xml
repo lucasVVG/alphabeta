@@ -5,6 +5,7 @@
 <prover id="0" name="Alt-Ergo" version="2.4.2" timelimit="1" steplimit="0" memlimit="1000"/>
 <prover id="1" name="Z3" version="4.8.12" timelimit="1" steplimit="0" memlimit="1000"/>
 <prover id="2" name="CVC4" version="1.8" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="3" name="Eprover" version="2.0" timelimit="1" steplimit="0" memlimit="1000"/>
 <file format="whyml">
 <path name=".."/><path name="minmax.mlw"/>
 <theory name="Top">
@@ -368,16 +369,16 @@
  <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="188594"/></proof>
  <transf name="split_vc" >
   <goal name="alphabeta&#39;vc.0" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.011360" steps="229"/></proof>
+  <proof prover="0"><result status="valid" time="0.011360" steps="240"/></proof>
   </goal>
   <goal name="alphabeta&#39;vc.1" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.016981" steps="407"/></proof>
+  <proof prover="0"><result status="valid" time="0.016981" steps="405"/></proof>
   </goal>
   <goal name="alphabeta&#39;vc.2" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.020846" steps="363"/></proof>
+  <proof prover="0"><result status="valid" time="0.020846" steps="362"/></proof>
   </goal>
   <goal name="alphabeta&#39;vc.3" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.028976" steps="98"/></proof>
+  <proof prover="0"><result status="valid" time="0.028976" steps="97"/></proof>
   </goal>
   <goal name="alphabeta&#39;vc.4" expl="precondition" proved="true">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="8561"/></proof>
@@ -385,7 +386,7 @@
   <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="131452"/></proof>
   <transf name="split_vc" proved="true" >
    <goal name="alphabeta&#39;vc.4.0" expl="precondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.022159" steps="42"/></proof>
+   <proof prover="0"><result status="valid" time="0.022159" steps="181"/></proof>
    </goal>
    <goal name="alphabeta&#39;vc.4.1" expl="precondition" proved="true">
    <proof prover="0"><result status="valid" time="0.016064" steps="23"/></proof>
@@ -396,7 +397,7 @@
    <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="566679"/></proof>
    <transf name="destruct" proved="true" arg1="Ensures1">
     <goal name="alphabeta&#39;vc.4.2.0" expl="precondition" proved="true">
-    <proof prover="0"><result status="valid" time="0.777135" steps="6355"/></proof>
+    <proof prover="0"><result status="valid" time="0.691978" steps="5634"/></proof>
     </goal>
     <goal name="alphabeta&#39;vc.4.2.1" expl="precondition" proved="true">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="7723"/></proof>
@@ -404,7 +405,7 @@
     <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="151808"/></proof>
     <transf name="destruct" proved="true" arg1="Requires2">
      <goal name="alphabeta&#39;vc.4.2.1.0" expl="precondition" proved="true">
-     <proof prover="0"><result status="valid" time="0.541582" steps="3830"/></proof>
+     <proof prover="0"><result status="valid" time="0.359547" steps="3323"/></proof>
      </goal>
      <goal name="alphabeta&#39;vc.4.2.1.1" expl="precondition" proved="true">
      <proof prover="0"><result status="valid" time="0.032259" steps="39"/></proof>
@@ -415,12 +416,12 @@
     </transf>
     </goal>
     <goal name="alphabeta&#39;vc.4.2.2" expl="precondition" proved="true">
-    <proof prover="0"><result status="valid" time="0.020251" steps="33"/></proof>
+    <proof prover="0"><result status="valid" time="0.031541" steps="33"/></proof>
     </goal>
    </transf>
    </goal>
    <goal name="alphabeta&#39;vc.4.3" expl="precondition" proved="true">
-   <proof prover="0"><result status="valid" time="1.339120" steps="8778"/></proof>
+   <proof prover="0"><result status="valid" time="1.339120" steps="9287"/></proof>
    </goal>
    <goal name="alphabeta&#39;vc.4.4" expl="precondition" proved="true">
    <proof prover="0"><result status="valid" time="0.022018" steps="23"/></proof>
@@ -429,7 +430,7 @@
    <proof prover="0"><result status="valid" time="0.014542" steps="45"/></proof>
    </goal>
    <goal name="alphabeta&#39;vc.4.6" expl="precondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.012867" steps="43"/></proof>
+   <proof prover="0"><result status="valid" time="0.012867" steps="42"/></proof>
    </goal>
   </transf>
   </goal>
@@ -439,24 +440,22 @@
   <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="144234"/></proof>
   <transf name="split_vc" >
    <goal name="alphabeta&#39;vc.5.0" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.197996" steps="46946"/></proof>
+   <proof prover="2"><result status="valid" time="0.197996" steps="43366"/></proof>
    </goal>
    <goal name="alphabeta&#39;vc.5.1" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.182096" steps="46911"/></proof>
+   <proof prover="2"><result status="valid" time="0.182096" steps="43275"/></proof>
    </goal>
    <goal name="alphabeta&#39;vc.5.2" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.364612" steps="56415"/></proof>
+   <proof prover="2"><result status="valid" time="0.364612" steps="49028"/></proof>
    </goal>
    <goal name="alphabeta&#39;vc.5.3" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.296380" steps="56893"/></proof>
+   <proof prover="2"><result status="valid" time="0.296380" steps="55243"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.5.4" expl="postcondition">
-   <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="29830"/></proof>
-   <proof prover="1" timelimit="5" obsolete="true"><result status="timeout" time="5.000000"/></proof>
-   <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="624943"/></proof>
+   <goal name="alphabeta&#39;vc.5.4" expl="postcondition" proved="true">
+   <proof prover="2"><result status="valid" time="0.237193" steps="44260"/></proof>
    <transf name="split_vc" >
     <goal name="alphabeta&#39;vc.5.4.0" expl="postcondition" proved="true">
-    <proof prover="0"><result status="valid" time="0.015964" steps="32"/></proof>
+    <proof prover="0"><result status="valid" time="0.015964" steps="30"/></proof>
     </goal>
     <goal name="alphabeta&#39;vc.5.4.1" expl="postcondition">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="15539"/></proof>
@@ -464,20 +463,70 @@
     <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="164565"/></proof>
     <transf name="destruct" arg1="Requires">
      <goal name="alphabeta&#39;vc.5.4.1.0" expl="postcondition">
-     <proof prover="0"><result status="timeout" time="1.043204" steps="5755"/></proof>
+     <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="6741"/></proof>
+     <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
+     <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="113592"/></proof>
      </goal>
      <goal name="alphabeta&#39;vc.5.4.1.1" expl="postcondition">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="12336"/></proof>
      <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
      <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="207563"/></proof>
      <transf name="destruct" arg1="H1">
-      <goal name="alphabeta&#39;vc.5.4.1.1.0" expl="postcondition">
-      <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="9821"/></proof>
-      <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
-      <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="178763"/></proof>
+      <goal name="alphabeta&#39;vc.5.4.1.1.0" expl="postcondition" proved="true">
+      <proof prover="0"><result status="valid" time="0.020330" steps="24"/></proof>
       </goal>
       <goal name="alphabeta&#39;vc.5.4.1.1.1" expl="postcondition">
-      <proof prover="0"><result status="timeout" time="1.013216" steps="5636"/></proof>
+      <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="7973"/></proof>
+      <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
+      <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="146395"/></proof>
+      <transf name="split_vc" >
+       <goal name="alphabeta&#39;vc.5.4.1.1.1.0" expl="postcondition">
+       <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="9403"/></proof>
+       <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
+       <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="115806"/></proof>
+       <proof prover="3" obsolete="true"><result status="unknown" time="0.002443"/></proof>
+       <transf name="destruct" arg1="Ensures1">
+        <goal name="alphabeta&#39;vc.5.4.1.1.1.0.0" expl="postcondition" proved="true">
+        <proof prover="0"><result status="valid" time="0.029345" steps="40"/></proof>
+        </goal>
+        <goal name="alphabeta&#39;vc.5.4.1.1.1.0.1" expl="postcondition">
+        </goal>
+        <goal name="alphabeta&#39;vc.5.4.1.1.1.0.2" expl="postcondition">
+        <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="8317"/></proof>
+        <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
+        <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="118776"/></proof>
+        <transf name="rewrite" arg1="H" arg2="in" arg3="Ensures">
+         <goal name="alphabeta&#39;vc.5.4.1.1.1.0.2.0" expl="postcondition">
+         <transf name="destruct" arg1="Ensures2">
+          <goal name="alphabeta&#39;vc.5.4.1.1.1.0.0.0.0" expl="postcondition">
+          <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="39120"/></proof>
+          <proof prover="1" timelimit="5" obsolete="true"><result status="timeout" time="5.000000"/></proof>
+          <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="766964"/></proof>
+          <transf name="split_vc" >
+           <goal name="alphabeta&#39;vc.5.4.1.1.1.0.0.0.0.0" expl="postcondition">
+           </goal>
+          </transf>
+          </goal>
+          <goal name="alphabeta&#39;vc.5.4.1.1.1.0.0.0.1" expl="postcondition">
+          <proof prover="0" obsolete="true"><result status="valid" time="0.030577" steps="45"/></proof>
+          </goal>
+          <goal name="alphabeta&#39;vc.5.4.1.1.1.0.0.0.2" expl="postcondition">
+          <proof prover="0" obsolete="true"><result status="valid" time="0.028683" steps="32"/></proof>
+          </goal>
+         </transf>
+         <transf name="split_vc" >
+          <goal name="alphabeta&#39;vc.5.4.1.1.1.0.2.0.0" expl="postcondition">
+          </goal>
+         </transf>
+         </goal>
+        </transf>
+        </goal>
+       </transf>
+       </goal>
+       <goal name="alphabeta&#39;vc.5.4.1.1.1.1" expl="postcondition" proved="true">
+       <proof prover="0"><result status="valid" time="0.019775" steps="46"/></proof>
+       </goal>
+      </transf>
       </goal>
      </transf>
      </goal>
@@ -491,174 +540,214 @@
    </transf>
    </goal>
    <goal name="alphabeta&#39;vc.5.5" expl="postcondition">
-   <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="55336"/></proof>
-   <proof prover="1" timelimit="5" obsolete="true"><result status="timeout" time="5.000000"/></proof>
-   <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="1460395"/></proof>
+   <proof prover="0"><result status="timeout" time="1.000000" steps="8799"/></proof>
+   <proof prover="1"><result status="timeout" time="1.000000"/></proof>
+   <proof prover="2"><result status="timeout" time="1.000000" steps="153482"/></proof>
+   <proof prover="3"><result status="unknown" time="0.001460"/></proof>
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.5.5.0" expl="postcondition" proved="true">
+    <proof prover="0"><result status="valid" time="0.042633" steps="73"/></proof>
+    </goal>
+    <goal name="alphabeta&#39;vc.5.5.1" expl="postcondition">
+    <proof prover="0"><result status="timeout" time="1.000000" steps="8398"/></proof>
+    <proof prover="1"><result status="timeout" time="1.000000"/></proof>
+    <proof prover="2"><result status="timeout" time="1.000000" steps="130340"/></proof>
+    <proof prover="3"><result status="unknown" time="0.000001"/></proof>
+    <transf name="split_vc" >
+     <goal name="alphabeta&#39;vc.5.5.1.0" expl="postcondition">
+     <proof prover="0"><result status="timeout" time="1.000000" steps="7528"/></proof>
+     <proof prover="1"><result status="timeout" time="1.000000"/></proof>
+     <proof prover="2"><result status="timeout" time="1.000000" steps="130252"/></proof>
+     <transf name="destruct" arg1="Ensures">
+      <goal name="alphabeta&#39;vc.5.5.1.0.0" expl="postcondition" proved="true">
+      <proof prover="2"><result status="valid" time="0.796781" steps="118813"/></proof>
+      </goal>
+      <goal name="alphabeta&#39;vc.5.5.1.0.1" expl="postcondition">
+      <proof prover="0" timelimit="5"><result status="timeout" time="5.000000" steps="32612"/></proof>
+      <proof prover="1" timelimit="5"><result status="timeout" time="5.000000"/></proof>
+      <proof prover="2" timelimit="5"><result status="timeout" time="5.000000" steps="326610"/></proof>
+      </goal>
+      <goal name="alphabeta&#39;vc.5.5.1.0.2" expl="postcondition">
+      <proof prover="0" timelimit="5"><result status="timeout" time="5.000000" steps="32647"/></proof>
+      <proof prover="1" timelimit="5"><result status="timeout" time="5.000000"/></proof>
+      <proof prover="2" timelimit="5"><result status="timeout" time="5.000000" steps="498498"/></proof>
+      </goal>
+     </transf>
+     </goal>
+     <goal name="alphabeta&#39;vc.5.5.1.1" expl="postcondition" proved="true">
+     <proof prover="0"><result status="valid" time="0.024518" steps="29"/></proof>
+     </goal>
+    </transf>
+    </goal>
+   </transf>
    </goal>
    <goal name="alphabeta&#39;vc.5.6" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.189171" steps="46941"/></proof>
+   <proof prover="2"><result status="valid" time="0.189171" steps="46430"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.6" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.008455" steps="26"/></proof>
+  <goal name="alphabeta&#39;vc.6" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.235359" steps="52346"/></proof>
   </goal>
   <goal name="alphabeta&#39;vc.7" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.018284" steps="67"/></proof>
+  <proof prover="0"><result status="valid" time="0.008455" steps="26"/></proof>
   </goal>
   <goal name="alphabeta&#39;vc.8" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.018284" steps="67"/></proof>
+  </goal>
+  <goal name="alphabeta&#39;vc.9" expl="precondition" proved="true">
   <proof prover="0"><result status="valid" time="0.017017" steps="57"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.9" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.026300" steps="228"/></proof>
-  </goal>
   <goal name="alphabeta&#39;vc.10" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.030102" steps="408"/></proof>
+  <proof prover="0"><result status="valid" time="0.026300" steps="215"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.11" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.033663" steps="365"/></proof>
+  <goal name="alphabeta&#39;vc.11" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.030102" steps="405"/></proof>
   </goal>
   <goal name="alphabeta&#39;vc.12" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.019356" steps="100"/></proof>
+  <proof prover="0"><result status="valid" time="0.033663" steps="362"/></proof>
   </goal>
   <goal name="alphabeta&#39;vc.13" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.019356" steps="98"/></proof>
+  </goal>
+  <goal name="alphabeta&#39;vc.14" expl="precondition" proved="true">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="12941"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
   <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="183900"/></proof>
   <transf name="split_vc" proved="true" >
-   <goal name="alphabeta&#39;vc.13.0" expl="precondition" proved="true">
-   <proof prover="1" timelimit="5"><result status="valid" time="0.033688" steps="122488"/></proof>
+   <goal name="alphabeta&#39;vc.14.0" expl="precondition" proved="true">
+   <proof prover="1" timelimit="5"><result status="valid" time="0.033688" steps="122480"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.13.1" expl="precondition" proved="true">
-   <proof prover="0" timelimit="5"><result status="valid" time="0.020725" steps="36"/></proof>
+   <goal name="alphabeta&#39;vc.14.1" expl="precondition" proved="true">
+   <proof prover="0" timelimit="5"><result status="valid" time="0.020725" steps="179"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.13.2" expl="precondition" proved="true">
-   <proof prover="2" timelimit="5"><result status="valid" time="0.421923" steps="60880"/></proof>
+   <goal name="alphabeta&#39;vc.14.2" expl="precondition" proved="true">
+   <proof prover="2" timelimit="5"><result status="valid" time="0.421923" steps="61458"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.13.3" expl="precondition" proved="true">
-   <proof prover="2" timelimit="5"><result status="valid" time="0.078365" steps="29236"/></proof>
+   <goal name="alphabeta&#39;vc.14.3" expl="precondition" proved="true">
+   <proof prover="2" timelimit="5"><result status="valid" time="0.078365" steps="29224"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.13.4" expl="precondition" proved="true">
-   <proof prover="0" timelimit="5"><result status="valid" time="0.009504" steps="43"/></proof>
+   <goal name="alphabeta&#39;vc.14.4" expl="precondition" proved="true">
+   <proof prover="0" timelimit="5"><result status="valid" time="0.009504" steps="42"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.13.5" expl="precondition" proved="true">
-   <proof prover="2" timelimit="5"><result status="valid" time="0.194308" steps="56761"/></proof>
+   <goal name="alphabeta&#39;vc.14.5" expl="precondition" proved="true">
+   <proof prover="2" timelimit="5"><result status="valid" time="0.194308" steps="53607"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.13.6" expl="precondition" proved="true">
-   <proof prover="1" timelimit="5"><result status="valid" time="0.008452" steps="8278"/></proof>
+   <goal name="alphabeta&#39;vc.14.6" expl="precondition" proved="true">
+   <proof prover="1" timelimit="5"><result status="valid" time="0.008452" steps="8280"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.14" expl="postcondition">
+  <goal name="alphabeta&#39;vc.15" expl="postcondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.000000" steps="11614"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="1.000000"/></proof>
   <proof prover="2" obsolete="true"><result status="timeout" time="1.000000" steps="561093"/></proof>
   <transf name="split_vc" >
-   <goal name="alphabeta&#39;vc.14.0" expl="postcondition" proved="true">
-   <proof prover="2" timelimit="5"><result status="valid" time="0.229238" steps="43654"/></proof>
+   <goal name="alphabeta&#39;vc.15.0" expl="postcondition" proved="true">
+   <proof prover="2" timelimit="5"><result status="valid" time="0.229238" steps="43796"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.14.1" expl="postcondition" proved="true">
-   <proof prover="2" timelimit="5"><result status="valid" time="0.165315" steps="46324"/></proof>
+   <goal name="alphabeta&#39;vc.15.1" expl="postcondition" proved="true">
+   <proof prover="2" timelimit="5"><result status="valid" time="0.165315" steps="43955"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.14.2" expl="postcondition">
+   <goal name="alphabeta&#39;vc.15.2" expl="postcondition">
    <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="46735"/></proof>
    <proof prover="1" timelimit="5" obsolete="true"><result status="timeout" time="5.000000"/></proof>
    <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="1537739"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.14.3" expl="postcondition">
+   <goal name="alphabeta&#39;vc.15.3" expl="postcondition">
    <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="45690"/></proof>
    <proof prover="1" timelimit="5" obsolete="true"><result status="timeout" time="5.000000"/></proof>
    <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="558587"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.14.4" expl="postcondition" proved="true">
-   <proof prover="2" timelimit="5"><result status="valid" time="0.177666" steps="43618"/></proof>
+   <goal name="alphabeta&#39;vc.15.4" expl="postcondition" proved="true">
+   <proof prover="2" timelimit="5"><result status="valid" time="0.177666" steps="43836"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.14.5" expl="postcondition" proved="true">
-   <proof prover="2" timelimit="5"><result status="valid" time="0.218974" steps="55153"/></proof>
+   <goal name="alphabeta&#39;vc.15.5" expl="postcondition" proved="true">
+   <proof prover="2" timelimit="5"><result status="valid" time="0.218974" steps="58564"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.14.6" expl="postcondition">
+   <goal name="alphabeta&#39;vc.15.6" expl="postcondition">
    <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="32577"/></proof>
    <proof prover="1" timelimit="5" obsolete="true"><result status="timeout" time="5.000000"/></proof>
    <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.000000" steps="1078321"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.15" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.16" expl="precondition" proved="true">
   <proof prover="0"><result status="valid" time="0.019021" steps="26"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.16" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.17" expl="precondition" proved="true">
   <proof prover="0"><result status="valid" time="0.017365" steps="67"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.17" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.18" expl="precondition" proved="true">
   <proof prover="0"><result status="valid" time="0.021131" steps="57"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.18" expl="postcondition">
+  <goal name="alphabeta&#39;vc.19" expl="postcondition">
   <transf name="split_vc" >
-   <goal name="alphabeta&#39;vc.18.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.0" expl="postcondition" proved="true">
    <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.18.0.0" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.0.0" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.013830" steps="16"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.0.1" expl="postcondition" proved="true">
-    <proof prover="0"><result status="valid" time="0.006877" steps="16"/></proof>
+    <goal name="alphabeta&#39;vc.19.0.1" expl="postcondition" proved="true">
+    <proof prover="0"><result status="valid" time="0.006877" steps="18"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.0.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.0.2" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.011648" steps="16"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.18.1" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.1" expl="postcondition" proved="true">
    <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.18.1.0" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.1.0" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.012736" steps="14"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.1.1" expl="postcondition" proved="true">
-    <proof prover="0"><result status="valid" time="0.000001" steps="16"/></proof>
+    <goal name="alphabeta&#39;vc.19.1.1" expl="postcondition" proved="true">
+    <proof prover="0"><result status="valid" time="0.000001" steps="18"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.1.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.1.2" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.012135" steps="16"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.18.2" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.2" expl="postcondition" proved="true">
    <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.18.2.0" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.2.0" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.022095" steps="30"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.2.1" expl="postcondition" proved="true">
-    <proof prover="0"><result status="valid" time="0.022476" steps="51"/></proof>
+    <goal name="alphabeta&#39;vc.19.2.1" expl="postcondition" proved="true">
+    <proof prover="0"><result status="valid" time="0.022476" steps="55"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.2.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.2.2" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.023894" steps="51"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.18.3" expl="postcondition">
+   <goal name="alphabeta&#39;vc.19.3" expl="postcondition">
    </goal>
-   <goal name="alphabeta&#39;vc.18.4" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.4" expl="postcondition" proved="true">
    <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.18.4.0" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.4.0" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.006078" steps="16"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.4.1" expl="postcondition" proved="true">
-    <proof prover="0"><result status="valid" time="0.000001" steps="14"/></proof>
+    <goal name="alphabeta&#39;vc.19.4.1" expl="postcondition" proved="true">
+    <proof prover="0"><result status="valid" time="0.000001" steps="16"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.4.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.4.2" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.011519" steps="14"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.18.5" expl="postcondition">
+   <goal name="alphabeta&#39;vc.19.5" expl="postcondition">
    </goal>
-   <goal name="alphabeta&#39;vc.18.6" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.6" expl="postcondition" proved="true">
    <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.18.6.0" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.6.0" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.014401" steps="14"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.6.1" expl="postcondition" proved="true">
-    <proof prover="0"><result status="valid" time="0.015405" steps="14"/></proof>
+    <goal name="alphabeta&#39;vc.19.6.1" expl="postcondition" proved="true">
+    <proof prover="0"><result status="valid" time="0.015405" steps="16"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.18.6.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.6.2" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.013071" steps="14"/></proof>
     </goal>
    </transf>

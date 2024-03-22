@@ -440,7 +440,13 @@ type flag =
   | SupBeta
   | InBounds
 
-
+predicate flt (f1 f2:flag) =
+  match f1, f2 with
+  | InfAlpha, _ -> true
+  | InBounds, (InBounds|SupBeta) -> true
+  | SupBeta, SupBeta -> true
+  | _, _ -> false
+  end
 
 let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int63 , ghost bound: flag) =
   variant { height t }
@@ -463,7 +469,7 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
         requires { l = reverse l0 ++ ll }
         requires {
           match fv with
-          | InBounds -> a <= v <= b /\ v =  minmax'_list f true l0 min_int (* TODO prouver que minmax'_list ... l ... = minmax'_list ... (rev l) ... *)
+          | InBounds -> a = v <= b /\ v =  minmax'_list f true l0 min_int
           | InfAlpha -> minmax'_list f true l0 min_int <= v <= a
           | SupBeta  -> minmax'_list f true l0 min_int >= v >= b
           end
@@ -475,6 +481,7 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
           | SupBeta  -> minmax'_list f true l min_int >= res >= b
           end
         }
+        ensures { flt fv bound }
         match ll with
         | Nil -> v, fv
         | Cons e l' -> 
@@ -498,7 +505,7 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
         requires { l = reverse l0 ++ ll }
         requires {
           match fv with
-          | InBounds -> a <= v <= b /\ v =  minmax'_list f false l0 max_int (* TODO prouver que minmax'_list ... l ... = minmax'_list ... (rev l) ... *)
+          | InBounds -> a <= v = b /\ v =  minmax'_list f false l0 max_int
           | InfAlpha -> minmax'_list f false l0 max_int  <= v <= a
           | SupBeta  -> minmax'_list f false l0 max_int  >= v >= b
           end
