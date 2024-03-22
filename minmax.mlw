@@ -184,12 +184,12 @@ predicate minmax'_list_upper_bound (f:'a -> int63) (l:list (arbre 'a)) (bo:bool)
     end
 
 predicate minmax'_list_lower_bound (f:'a -> int63) (l:list (arbre 'a)) (bo:bool) (score:int63) =
-  exists x. mem x l /\
+  l <> Nil -> exists x. mem x l /\
     match x with
-    | N info Nil -> (if bo then (>=) else (<=)) score (f info)
+    | N info Nil -> (if bo then (<=) else (>=)) score (f info)
     | N _ l' ->
       forall y. mem y l' ->
-        (if bo then (>=) else (<=)) score (minmax' f y bo)
+        (if bo then (<=) else (>=)) score (minmax' f y bo)
     end
 
 predicate minmax'_upper_bound (f:'a -> int63) (t:arbre 'a) (bo:bool) (score:int63) =
@@ -220,13 +220,13 @@ lemma minmax'_list_upper_extend_false:
 lemma minmax'_list_lower_extend_true:
   forall f: 'a -> int63. forall l: list (arbre 'a). forall score0 score1: int63.
     minmax'_list_lower_bound f l true score0 ->
-    score1 >= score0 ->
+    score1 <= score0 ->
     minmax'_list_lower_bound f l true score1
 
 lemma minmax'_list_lower_extend_false:
   forall f: 'a -> int63. forall l: list (arbre 'a). forall score0 score1: int63.
     minmax'_list_lower_bound f l false score0 ->
-    score1 <= score0 ->
+    score1 >= score0 ->
     minmax'_list_lower_bound f l false score1
 
 
@@ -342,7 +342,7 @@ with lemma minmax'_list_spec (f:'a -> int63) (l: list (arbre 'a)) (bo:bool) (v: 
   ensures {
     let score = minmax'_list f bo l v in
     minmax'_list_upper_bound f l bo score /\
-    minmax'_list_lower_bound f l bo score }
+    v=score \/ minmax'_list_lower_bound f l bo score }
   match l with
   | Nil -> ()
   | Cons t l' -> 
