@@ -322,6 +322,33 @@ let rec lemma minmax'_list_rev_l
    ensures { minmax'_list f bo l v = minmax'_list f bo (reverse l) v }
    ()
 
+let rec lemma minmax'_list_min_int_lower_bound 
+  (f:'a -> int63) (l:list (arbre 'a)) =
+  variant { l }
+  requires { minmax'_list f true l min_int = min_int }
+  ensures { minmax'_list_lower_bound f l true min_int }
+  match l with
+  | Nil -> ()
+  | Cons x l' ->
+    match l' with
+    | Nil -> ()
+    | _ -> minmax'_list_min_int_lower_bound f l'
+    end
+  end
+
+let rec lemma minmax'_list_max_int_lower_bound 
+  (f:'a -> int63) (l:list (arbre 'a)) =
+  variant { l }
+  requires { minmax'_list f false l max_int = max_int }
+  ensures { minmax'_list_lower_bound f l false max_int }
+  match l with
+  | Nil -> ()
+  | Cons x l' ->
+    match l' with
+    | Nil -> ()
+    | _ -> minmax'_list_max_int_lower_bound f l'
+    end
+  end
 
 
 let rec lemma minmax'_spec (f:'a -> int63) (t:arbre 'a) (bo:bool) : unit =
@@ -329,8 +356,7 @@ let rec lemma minmax'_spec (f:'a -> int63) (t:arbre 'a) (bo:bool) : unit =
   ensures {
     let score = minmax' f t bo in
     minmax'_upper_bound f t bo score /\
-    minmax'_lower_bound f t bo score
-  }
+    minmax'_lower_bound f t bo score }
   match t with
   | N _ Nil -> ()
   | N _ l -> 
@@ -342,7 +368,7 @@ with lemma minmax'_list_spec (f:'a -> int63) (l: list (arbre 'a)) (bo:bool) (v: 
   ensures {
     let score = minmax'_list f bo l v in
     minmax'_list_upper_bound f l bo score /\
-    v=score \/ minmax'_list_lower_bound f l bo score }
+    (v=score \/ minmax'_list_lower_bound f l bo score) }
   match l with
   | Nil -> ()
   | Cons t l' -> 
