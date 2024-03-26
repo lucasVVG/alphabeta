@@ -450,6 +450,7 @@ predicate flt (f1 f2:flag) =
 
 let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int63 , ghost bound: flag) =
   variant { height t }
+  requires { a < b }
   ensures {
     match bound with
     | InBounds -> a <= res <= b /\ res = minmax' f t bo
@@ -457,6 +458,7 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
     | SupBeta  -> minmax' f t bo >= res >= b
     end
   }
+  ensures { a = min_int /\ b = max_int -> res = minmax' f t bo }
   match t with
   | N info Nil -> 
     let v = f info in
@@ -467,6 +469,7 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
         variant { ll }
         requires { forall x. mem x ll -> height x < height t }
         requires { l = reverse l0 ++ ll }
+        requires { a < b }
         requires {
           match fv with
           | InBounds -> a = v <= b /\ v =  minmax'_list f true l0 min_int
@@ -503,11 +506,12 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
         variant { ll }
         requires { forall x. mem x ll -> height x < height t }
         requires { l = reverse l0 ++ ll }
+        requires { a < b }
         requires {
           match fv with
           | InBounds -> a <= v = b /\ v =  minmax'_list f false l0 max_int
-          | InfAlpha -> minmax'_list f false l0 max_int  <= v <= a
-          | SupBeta  -> minmax'_list f false l0 max_int  >= v >= b
+          | InfAlpha -> minmax'_list f false l0 max_int <= v <= a
+          | SupBeta  -> minmax'_list f false l0 max_int >= v >= b
           end
         }
         ensures { 
@@ -517,6 +521,7 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
           | SupBeta  -> minmax'_list f false l max_int  >= res >= b
           end
         }
+        ensures { flt bound fv }
         match ll with
         | Nil -> v, fv
         | Cons e l' ->
@@ -534,4 +539,3 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
       in
       loop l max_int b SupBeta Nil
   end
-
