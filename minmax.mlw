@@ -27,27 +27,6 @@ let function int63_max (a b:int63) =
 predicate sub_list (l1 l2:list 'a) =
   forall x:'a. mem x l2 -> mem x l1
 
-(*let rec predicate parcours (t:arbre 'a) (p:int) : bool =
-  variant { p }
-  requires { p >= 0 }
-  ensures { true (* result <-> ??? *) }
-  let rec par_list (l:list (arbre 'a)) =
-    variant { l }
-    requires { p>0 }
-    match l with
-    | Nil -> true
-    | Cons e l' -> parcours e (p-1) && par_list l'
-    end
-  in
-
-  match t with
-  | E _ -> true
-  | N l -> 
-    if p>0 then
-      par_list l
-    else false
-  end
-*)
 
 let rec function height (a:arbre 'a) =
   variant { a }
@@ -71,19 +50,6 @@ let rec lemma height_list_max (l:list (arbre 'a)) =
   | Nil -> ()
   | Cons _ l' -> height_list_max l'
   end
-
-
-(* axiom terminaison : forall a:arbre 'a. exists x:int. parcours a x *)
-
-(* ensures { 
-  match t with 
-  E info -> result = f info
-  N l ->
-    forall x. mem x l -> 
-      match x with
-      | E info -> result >= f info
-      | N l -> 
-} *)
 
 
 let rec function minmax' (f:'a -> int63) (t:arbre 'a) (bo:bool) =
@@ -402,7 +368,7 @@ let rec minmax (t:arbre 'a) (bo:bool) (f:'a -> int63) =
       in
       loop l min_int
     else
-      let rec loop ll v =
+      let rec loop ll v =    
         variant { ll }
         requires { forall x. mem x ll -> height x < height t }
         ensures { result = minmax'_list f false ll v }
@@ -456,7 +422,7 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
     | InBounds -> a <= res <= b /\ res = minmax' f t bo
     | InfAlpha -> minmax' f t bo <= res <= a
     | SupBeta  -> minmax' f t bo >= res >= b
-    end
+    end    
   }
   ensures { a = min_int /\ b = max_int -> res = minmax' f t bo }
   match t with
