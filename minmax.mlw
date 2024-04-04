@@ -1,32 +1,19 @@
-use int.Int
-use int.MinMax
-use mach.int.Int63
+module Tree
+
 use list.List
-use list.Reverse
-use list.Append
-use list.HdTl
-use list.FoldLeft
-use list.Mem
-use ref.Ref
 
 type arbre 'a =
 | N 'a (list (arbre 'a))
 
-exception Return int
+end
 
-let function int63_min (a b:int63) =
-  ensures { result = a \/ result = b  }
-  ensures { result <= a /\ result <= b }
-  if a < b then a else b
-  
-let function int63_max (a b:int63) =
-  ensures { result = a \/ result = b  }
-  ensures { result >= a /\ result >= b }
-  if a > b then a else b
-   
-predicate sub_list (l1 l2:list 'a) =
-  forall x:'a. mem x l2 -> mem x l1
+module Height
 
+use int.Int
+use int.MinMax
+use list.List
+use list.Mem
+use Tree
 
 let rec function height (a:arbre 'a) =
   variant { a }
@@ -51,25 +38,79 @@ let rec lemma height_list_max (l:list (arbre 'a)) =
   | Cons _ l' -> height_list_max l'
   end
 
+end
 
-let rec function minmax' (f:'a -> int63) (t:arbre 'a) (bo:bool) =
+module MinMax
+
+use int.Int
+use list.List
+use list.Reverse
+use list.Append
+use list.Mem
+use Tree
+use Height
+
+scope Make
+
+scope MinMaxOrder
+  type t
+  val (=) (x y : t) : bool ensures { result <-> x = y }
+
+  val predicate (<)  t t : bool
+  let predicate (>)  (x y : t) = y < x
+  let predicate (<=) (x y : t) = x < y || x = y
+  let predicate (>=) (x y : t) = y <= x
+
+  val constant min_t: t
+  val constant max_t: t
+
+  axiom all_in_bounds: forall n:t. min_t <= n <= max_t
+  
+  axiom lt_not_refl:
+    forall x. not (x < x)
+    
+  axiom lt_trans:
+    forall x y z. x < y -> y < z -> x < z
+    
+  axiom full_order:
+    forall x y. x <> y -> x < y \/ y < x
+  
+  let function min (a b:t) =
+    ensures { result = a \/ result = b  }
+    ensures { result <= a /\ result <= b }
+    if a < b then a else b
+    
+  let function max (a b:t) =
+    ensures { result = a \/ result = b  }
+    ensures { result >= a /\ result >= b }
+    if a > b then a else b
+
+end
+
+import MinMaxOrder
+use Height
+
+predicate sub_list (l1 l2:list 'a) =
+  forall x:'a. mem x l2 -> mem x l1
+
+let rec function minmax' (f:'a -> t) (t:arbre 'a) (bo:bool) =
   variant { t }
   match t with
   | N info Nil -> f info
   | N _ l -> 
-    minmax'_list f bo l (if bo then min_int else max_int)
+    minmax'_list f bo l (if bo then min_t else max_t)
   end
 with function minmax'_list f bo ll v =
   variant { ll }
   match ll with
   | Nil -> v
   | Cons e l' -> 
-    let v' =  (if bo then int63_max else int63_min) v (minmax' f e (not bo)) in
+    let v' =  (if bo then max else min) v (minmax' f e (not bo)) in
     minmax'_list f bo l' v'
   end
 
 (* MINMAX LIST LEMMA IN *)
-let rec lemma minmax'_list_max_in (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
+let rec lemma minmax'_list_max_in (f: 'a -> t) (l: list (arbre 'a)) (v:t) =
   variant { l }
   ensures {
     let score = minmax'_list f true l v in
@@ -85,7 +126,7 @@ let rec lemma minmax'_list_max_in (f: 'a -> int63) (l: list (arbre 'a)) (v:int63
       minmax'_list_max_in f l' v
   end
   
-let rec lemma minmax'_list_min_in (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
+let rec lemma minmax'_list_min_in (f: 'a -> t) (l: list (arbre 'a)) (v:t) =
   variant { l }
   ensures {
     let score = minmax'_list f false l v in
@@ -103,7 +144,7 @@ let rec lemma minmax'_list_min_in (f: 'a -> int63) (l: list (arbre 'a)) (v:int63
 
 (* MINMAX LIST LEMMA MIN-MAX *)
 let rec lemma mimax'_list_max
-  (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
+  (f: 'a -> t) (l: list (arbre 'a)) (v:t) =
   variant { l }
   ensures {
     let score = minmax'_list f true l v in
@@ -120,7 +161,7 @@ let rec lemma mimax'_list_max
   end
 
 let rec lemma mimax'_list_min
-  (f: 'a -> int63) (l: list (arbre 'a)) (v:int63) =
+  (f: 'a -> t) (l: list (arbre 'a)) (v:t) =
   variant { l }
   ensures {
     let score = minmax'_list f false l v in
@@ -140,7 +181,7 @@ let rec lemma mimax'_list_min
 
 
 (* MINMAX BOUND PREDICATE *)
-predicate minmax'_list_upper_bound (f:'a -> int63) (l:list (arbre 'a)) (bo:bool) (score:int63) =
+predicate minmax'_list_upper_bound (f:'a -> t) (l:list (arbre 'a)) (bo:bool) (score:t) =
   forall x. mem x l ->
     match x with
     | N info Nil -> (if bo then (>=) else (<=)) score (f info)
@@ -149,7 +190,7 @@ predicate minmax'_list_upper_bound (f:'a -> int63) (l:list (arbre 'a)) (bo:bool)
         (if bo then (>=) else (<=)) score (minmax' f y bo)
     end
 
-predicate minmax'_list_lower_bound (f:'a -> int63) (l:list (arbre 'a)) (bo:bool) (score:int63) =
+predicate minmax'_list_lower_bound (f:'a -> t) (l:list (arbre 'a)) (bo:bool) (score:t) =
   l <> Nil -> exists x. mem x l /\
     match x with
     | N info Nil -> (if bo then (<=) else (>=)) score (f info)
@@ -158,13 +199,13 @@ predicate minmax'_list_lower_bound (f:'a -> int63) (l:list (arbre 'a)) (bo:bool)
         (if bo then (<=) else (>=)) score (minmax' f y bo)
     end
 
-predicate minmax'_upper_bound (f:'a -> int63) (t:arbre 'a) (bo:bool) (score:int63) =
+predicate minmax'_upper_bound (f:'a -> t) (t:arbre 'a) (bo:bool) (score:t) =
   match t with
   | N info Nil -> score = f info
   | N _ l -> minmax'_list_upper_bound f l bo score
   end
   
-predicate minmax'_lower_bound (f:'a -> int63) (t:arbre 'a) (bo:bool) (score:int63) =
+predicate minmax'_lower_bound (f:'a -> t) (t:arbre 'a) (bo:bool) (score:t) =
   match t with
   | N info Nil -> score = f info
   | N _ l -> minmax'_list_lower_bound f l bo score
@@ -172,25 +213,25 @@ predicate minmax'_lower_bound (f:'a -> int63) (t:arbre 'a) (bo:bool) (score:int6
 
 (* MINMAX EXTEND *)
 lemma minmax'_list_upper_extend_true:
-  forall f: 'a -> int63. forall l: list (arbre 'a). forall score0 score1: int63.
+  forall f: 'a -> t. forall l: list (arbre 'a). forall score0 score1: t.
     minmax'_list_upper_bound f l true score0 ->
     score1 >= score0 ->
     minmax'_list_upper_bound f l true score1
     
 lemma minmax'_list_upper_extend_false:
-  forall f: 'a -> int63. forall l: list (arbre 'a). forall score0 score1: int63.
+  forall f: 'a -> t. forall l: list (arbre 'a). forall score0 score1: t.
     minmax'_list_upper_bound f l false score0 ->
     score1 <= score0 ->
     minmax'_list_upper_bound f l false score1
 
 lemma minmax'_list_lower_extend_true:
-  forall f: 'a -> int63. forall l: list (arbre 'a). forall score0 score1: int63.
+  forall f: 'a -> t. forall l: list (arbre 'a). forall score0 score1: t.
     minmax'_list_lower_bound f l true score0 ->
     score1 <= score0 ->
     minmax'_list_lower_bound f l true score1
 
 lemma minmax'_list_lower_extend_false:
-  forall f: 'a -> int63. forall l: list (arbre 'a). forall score0 score1: int63.
+  forall f: 'a -> t. forall l: list (arbre 'a). forall score0 score1: t.
     minmax'_list_lower_bound f l false score0 ->
     score1 >= score0 ->
     minmax'_list_lower_bound f l false score1
@@ -198,7 +239,7 @@ lemma minmax'_list_lower_extend_false:
 
 
 let rec lemma minmax'_list_extendscore_true 
-  (f:'a -> int63) (l: list (arbre 'a)) (v v':int63) =
+  (f:'a -> t) (l: list (arbre 'a)) (v v':t) =
   variant { l }
   requires { 
     let score = minmax'_list f true l v in
@@ -211,12 +252,12 @@ let rec lemma minmax'_list_extendscore_true
   match l with
   | Nil -> ()
   | Cons e l' ->
-    let v'' = int63_max v (minmax' f e false) in
+    let v'' = max v (minmax' f e false) in
     minmax'_list_extendscore_true f l' v'' v'
   end
   
 let rec lemma minmax'_list_extendscore_false
-  (f:'a -> int63) (l: list (arbre 'a)) (v v':int63) =
+  (f:'a -> t) (l: list (arbre 'a)) (v v':t) =
   variant { l }
   requires { 
     let score = minmax'_list f false l v in
@@ -229,12 +270,12 @@ let rec lemma minmax'_list_extendscore_false
   match l with
   | Nil -> ()
   | Cons e l' ->
-    let v'' = int63_min v (minmax' f e true) in
+    let v'' = min v (minmax' f e true) in
     minmax'_list_extendscore_false f l' v'' v'
   end
 
 let rec lemma minmax'_list_infscore_true 
-  (f:'a -> int63) (l: list (arbre 'a)) (v v':int63) =
+  (f:'a -> t) (l: list (arbre 'a)) (v v':t) =
   variant { l }
   requires { 
     let score = minmax'_list f true l v in
@@ -252,13 +293,13 @@ let rec lemma minmax'_list_infscore_true
     | Nil -> ()
     | Cons e l' ->
       let score = minmax'_list f true l' v in
-      let v2 = int63_max v' (minmax' f e false) in
+      let v2 = max v' (minmax' f e false) in
       if (v2>=score) then minmax'_list_infscore_true f l' v2 v'
       else minmax'_list_infscore_true f l' v2 v'
     end
     
 let rec lemma minmax'_list_supscore_false 
-  (f:'a -> int63) (l: list (arbre 'a)) (v v':int63) =
+  (f:'a -> t) (l: list (arbre 'a)) (v v':t) =
   variant { l }
   requires { 
     let score = minmax'_list f false l v in
@@ -276,48 +317,48 @@ let rec lemma minmax'_list_supscore_false
     | Nil -> ()
     | Cons e l' ->
       let score = minmax'_list f false l' v in
-      let v2 = int63_min v' (minmax' f e true) in
+      let v2 = min v' (minmax' f e true) in
       if (v2<=score) then minmax'_list_supscore_false f l' v2 v'
       else minmax'_list_supscore_false f l' v2 v'
     end
 
 (* MINMAX LIST rev l <=> l *)
 let rec lemma minmax'_list_rev_l
-  (f:'a -> int63) (l:list (arbre 'a)) (bo:bool) (v: int63) =
+  (f:'a -> t) (l:list (arbre 'a)) (bo:bool) (v: t) =
    variant { l }
    ensures { minmax'_list f bo l v = minmax'_list f bo (reverse l) v }
    ()
 
-let rec lemma minmax'_list_min_int_lower_bound 
-  (f:'a -> int63) (l:list (arbre 'a)) =
+let rec lemma minmax'_list_min_t_lower_bound 
+  (f:'a -> t) (l:list (arbre 'a)) =
   variant { l }
-  requires { minmax'_list f true l min_int = min_int }
-  ensures { minmax'_list_lower_bound f l true min_int }
+  requires { minmax'_list f true l min_t = min_t }
+  ensures { minmax'_list_lower_bound f l true min_t }
   match l with
   | Nil -> ()
   | Cons x l' ->
     match l' with
     | Nil -> ()
-    | _ -> minmax'_list_min_int_lower_bound f l'
+    | _ -> minmax'_list_min_t_lower_bound f l'
     end
   end
 
-let rec lemma minmax'_list_max_int_lower_bound 
-  (f:'a -> int63) (l:list (arbre 'a)) =
+let rec lemma minmax'_list_max_t_lower_bound 
+  (f:'a -> t) (l:list (arbre 'a)) =
   variant { l }
-  requires { minmax'_list f false l max_int = max_int }
-  ensures { minmax'_list_lower_bound f l false max_int }
+  requires { minmax'_list f false l max_t = max_t }
+  ensures { minmax'_list_lower_bound f l false max_t }
   match l with
   | Nil -> ()
   | Cons x l' ->
     match l' with
     | Nil -> ()
-    | _ -> minmax'_list_max_int_lower_bound f l'
+    | _ -> minmax'_list_max_t_lower_bound f l'
     end
   end
 
 
-let rec lemma minmax'_spec (f:'a -> int63) (t:arbre 'a) (bo:bool) : unit =
+let rec lemma minmax'_spec (f:'a -> t) (t:arbre 'a) (bo:bool) : unit =
   variant { t }
   ensures {
     let score = minmax' f t bo in
@@ -327,9 +368,9 @@ let rec lemma minmax'_spec (f:'a -> int63) (t:arbre 'a) (bo:bool) : unit =
   | N _ Nil -> ()
   | N _ l -> 
     let score = minmax' f t bo in
-    minmax'_list_spec f l bo (if bo then min_int else max_int)
+    minmax'_list_spec f l bo (if bo then min_t else max_t)
   end
-with lemma minmax'_list_spec (f:'a -> int63) (l: list (arbre 'a)) (bo:bool) (v: int63) : unit =
+with lemma minmax'_list_spec (f:'a -> t) (l: list (arbre 'a)) (bo:bool) (v: t) : unit =
   variant { l }
   ensures {
     let score = minmax'_list f bo l v in
@@ -340,15 +381,15 @@ with lemma minmax'_list_spec (f:'a -> int63) (l: list (arbre 'a)) (bo:bool) (v: 
   | Cons t l' -> 
     minmax'_spec f t (not bo);
     if bo then
-      let v' =  int63_max v (minmax' f t (not bo)) in
+      let v' =  max v (minmax' f t (not bo)) in
       minmax'_list_spec f l' bo v'
     else
-      let v' =  int63_min v (minmax' f t (not bo)) in
+      let v' =  min v (minmax' f t (not bo)) in
       minmax'_list_spec f l' bo v'
   end
   
 
-let rec minmax (t:arbre 'a) (bo:bool) (f:'a -> int63) =
+let rec minmax (t:arbre 'a) (bo:bool) (f:'a -> t) =
   variant { height t }
   ensures { result = minmax' f t bo }
   match t with
@@ -357,49 +398,31 @@ let rec minmax (t:arbre 'a) (bo:bool) (f:'a -> int63) =
     if bo then
       let rec loop ll v =
         variant { ll }
-        requires { forall x. mem x ll -> height x < height t }
+        requires { forall x. mem x ll -> Int.(<) (height x) (height t) }
         ensures { result = minmax'_list f true ll v }
         match ll with
         | Nil -> v
         | Cons e l' ->
-          let v' =  int63_max v (minmax e false f) in
+          let v' =  max v (minmax e false f) in
           loop l' v'
         end
       in
-      loop l min_int
+      loop l min_t
     else
       let rec loop ll v =    
         variant { ll }
-        requires { forall x. mem x ll -> height x < height t }
+        requires { forall x. mem x ll -> Int.(<) (height x) (height t) }
         ensures { result = minmax'_list f false ll v }
         match ll with
         | Nil -> v
         | Cons e l' ->
-          let v' =  int63_min v (minmax e true f) in
+          let v' =  min v (minmax e true f) in
           loop l' v'
         end
       in
-      loop l max_int
+      loop l max_t
   end
 
-
-(*
-let rec function minmax' (f:'a -> int63) (t:arbre 'a) (bo:bool) =
-  variant { t }
-  match t with
-  | N info Nil -> f info
-  | N _ l -> 
-    minmax'_list f bo l (if bo then min_int else max_int)
-  end
-with function minmax'_list f bo ll v =
-  variant { ll }
-  match ll with
-  | Nil -> v
-  | Cons e l' -> 
-    let v' =  (if bo then int63_max else int63_min) v (minmax' f e (not bo)) in
-    minmax'_list f bo l' v'
-  end
-*)
 
 type flag =
   | InfAlpha
@@ -414,7 +437,7 @@ predicate flt (f1 f2:flag) =
   | _, _ -> false
   end
 
-let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int63 , ghost bound: flag) =
+let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> t) (a b:t) : (res: t , ghost bound: flag) =
   variant { height t }
   requires { a < b }
   ensures {
@@ -424,30 +447,30 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
     | SupBeta  -> minmax' f t bo >= res >= b
     end    
   }
-  ensures { a = min_int /\ b = max_int -> res = minmax' f t bo }
+  ensures { a = min_t /\ b = max_t -> res = minmax' f t bo }
   match t with
   | N info Nil -> 
     let v = f info in
     v, (if v<a then InfAlpha else if v>b then SupBeta else InBounds)
   | N _ l -> 
     if bo then
-      let rec loop ll v a (ghost fv : flag) (ghost l0): (res : int63, ghost bound: flag) =
+      let rec loop ll v a (ghost fv : flag) (ghost l0): (res : t, ghost bound: flag) =
         variant { ll }
-        requires { forall x. mem x ll -> height x < height t }
+        requires { forall x. mem x ll -> Int.(<) (height x) (height t) }
         requires { l = reverse l0 ++ ll }
         requires { a < b }
         requires {
           match fv with
-          | InBounds -> a = v <= b /\ v =  minmax'_list f true l0 min_int
-          | InfAlpha -> minmax'_list f true l0 min_int <= v <= a
-          | SupBeta  -> minmax'_list f true l0 min_int >= v >= b
+          | InBounds -> a = v <= b /\ v =  minmax'_list f true l0 min_t
+          | InfAlpha -> minmax'_list f true l0 min_t <= v <= a
+          | SupBeta  -> minmax'_list f true l0 min_t >= v >= b
           end
         }
         ensures { 
           match bound with
-          | InBounds -> a <= res <= b /\ res = minmax'_list f true l min_int
-          | InfAlpha -> minmax'_list f true l min_int <= res <= a
-          | SupBeta  -> minmax'_list f true l min_int >= res >= b
+          | InBounds -> a <= res <= b /\ res = minmax'_list f true l min_t
+          | InfAlpha -> minmax'_list f true l min_t <= res <= a
+          | SupBeta  -> minmax'_list f true l min_t >= res >= b
           end
         }
         ensures { flt fv bound }
@@ -463,28 +486,28 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
           in
           if v' >= b then (v', SupBeta)
           else
-            loop l' v' (int63_max v' a) f' (Cons e l0)
+            loop l' v' (max v' a) f' (Cons e l0)
         end
       in
-      loop l min_int a InfAlpha Nil
+      loop l min_t a InfAlpha Nil
     else
-      let rec loop ll v b (ghost fv : flag) (ghost l0) : (res : int63, ghost bound: flag) =
+      let rec loop ll v b (ghost fv : flag) (ghost l0) : (res : t, ghost bound: flag) =
         variant { ll }
-        requires { forall x. mem x ll -> height x < height t }
+        requires { forall x. mem x ll -> Int.(<) (height x) (height t) }
         requires { l = reverse l0 ++ ll }
         requires { a < b }
         requires {
           match fv with
-          | InBounds -> a <= v = b /\ v =  minmax'_list f false l0 max_int
-          | InfAlpha -> minmax'_list f false l0 max_int <= v <= a
-          | SupBeta  -> minmax'_list f false l0 max_int >= v >= b
+          | InBounds -> a <= v = b /\ v =  minmax'_list f false l0 max_t
+          | InfAlpha -> minmax'_list f false l0 max_t <= v <= a
+          | SupBeta  -> minmax'_list f false l0 max_t >= v >= b
           end
         }
         ensures { 
           match bound with
-          | InBounds -> a <= res <= b /\ res = minmax'_list f false l max_int 
-          | InfAlpha -> minmax'_list f false l max_int  <= res <= a
-          | SupBeta  -> minmax'_list f false l max_int  >= res >= b
+          | InBounds -> a <= res <= b /\ res = minmax'_list f false l max_t 
+          | InfAlpha -> minmax'_list f false l max_t  <= res <= a
+          | SupBeta  -> minmax'_list f false l max_t  >= res >= b
           end
         }
         ensures { flt bound fv }
@@ -500,8 +523,11 @@ let rec alphabeta (t:arbre 'a) (bo:bool) (f:'a -> int63) (a b:int63) : (res: int
           in
           if v' <= a then (v', InfAlpha)
           else
-            loop l' v' (int63_min v' b) f' (Cons e l0)
+            loop l' v' (min v' b) f' (Cons e l0)
         end
       in
-      loop l max_int b SupBeta Nil
+      loop l max_t b SupBeta Nil
   end
+  
+end
+end
