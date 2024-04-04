@@ -11,74 +11,167 @@
 <theory name="Top" proved="true">
  <goal name="int63_min&#39;vc" expl="VC for int63_min" proved="true">
  <proof prover="0"><result status="valid" time="0.000001" steps="15"/></proof>
+ <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.039072" steps="3341"/></proof>
  </goal>
  <goal name="int63_max&#39;vc" expl="VC for int63_max" proved="true">
  <proof prover="0"><result status="valid" time="0.013805" steps="15"/></proof>
+ <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.024669" steps="3593"/></proof>
  </goal>
  <goal name="height&#39;vc" expl="VC for height" proved="true">
- <proof prover="0"><result status="valid" time="0.011485" steps="48"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="height&#39;vc.0" expl="variant decrease" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="height&#39;vc.0.0" expl="variant decrease" proved="true">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.010694" steps="13"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.045726" steps="8719"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="height&#39;vc.1" expl="postcondition" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="height&#39;vc.1.0" expl="postcondition" proved="true">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.019292" steps="9"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.036551" steps="7682"/></proof>
+   </goal>
+   <goal name="height&#39;vc.1.1" expl="postcondition" proved="true">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.000001" steps="10"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.047555" steps="8089"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
  </goal>
  <goal name="height_list&#39;vc" expl="VC for height_list" proved="true">
  <proof prover="0"><result status="valid" time="0.011453" steps="118"/></proof>
+ <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.050962" steps="6507"/></proof>
  </goal>
  <goal name="height_list_max&#39;vc" expl="VC for height_list_max" proved="true">
  <proof prover="0"><result status="valid" time="0.011442" steps="200"/></proof>
+ <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.067590" steps="9675"/></proof>
  </goal>
  <goal name="minmax&#39;&#39;vc" expl="VC for minmax&#39;" proved="true">
  <transf name="split_vc" proved="true" >
   <goal name="minmax&#39;&#39;vc.0" expl="variant decrease" proved="true">
   <proof prover="0"><result status="valid" time="0.010621" steps="17"/></proof>
+  <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.043692" steps="8181"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="minmax&#39;_list&#39;vc" expl="VC for minmax&#39;_list" proved="true">
  <proof prover="0"><result status="valid" time="0.013801" steps="99"/></proof>
+ <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.033784" steps="7554"/></proof>
  </goal>
  <goal name="minmax&#39;_list_max_in&#39;vc" expl="VC for minmax&#39;_list_max_in" proved="true">
  <proof prover="0"><result status="valid" time="0.107580" steps="1195"/></proof>
+ <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.298472" steps="30783"/></proof>
  </goal>
  <goal name="minmax&#39;_list_min_in&#39;vc" expl="VC for minmax&#39;_list_min_in" proved="true">
  <proof prover="0"><result status="valid" time="0.117410" steps="1128"/></proof>
+ <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.245199" steps="29296"/></proof>
  </goal>
  <goal name="mimax&#39;_list_max&#39;vc" expl="VC for mimax&#39;_list_max" proved="true">
  <transf name="split_vc" proved="true" >
   <goal name="mimax&#39;_list_max&#39;vc.0" expl="variant decrease" proved="true">
   <proof prover="0"><result status="valid" time="0.017268" steps="68"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.100874" steps="15183"/></proof>
   </goal>
   <goal name="mimax&#39;_list_max&#39;vc.1" expl="variant decrease" proved="true">
   <proof prover="0"><result status="valid" time="0.018816" steps="68"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.098945" steps="15223"/></proof>
   </goal>
   <goal name="mimax&#39;_list_max&#39;vc.2" expl="postcondition" proved="true">
   <transf name="split_vc" proved="true" >
    <goal name="mimax&#39;_list_max&#39;vc.2.0" expl="postcondition" proved="true">
    <proof prover="0"><result status="valid" time="0.017805" steps="24"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.071493" steps="13918"/></proof>
    </goal>
    <goal name="mimax&#39;_list_max&#39;vc.2.1" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.458984" steps="3109"/></proof>
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.381033" steps="3109"/></proof>
+   <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.653523" steps="53608"/></proof>
    </goal>
   </transf>
   </goal>
  </transf>
  </goal>
  <goal name="mimax&#39;_list_min&#39;vc" expl="VC for mimax&#39;_list_min" proved="true">
- <proof prover="0"><result status="valid" time="0.706430" steps="5033"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="mimax&#39;_list_min&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.022898" steps="68"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.069777" steps="15504"/></proof>
+  </goal>
+  <goal name="mimax&#39;_list_min&#39;vc.1" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.024592" steps="68"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.079783" steps="15544"/></proof>
+  </goal>
+  <goal name="mimax&#39;_list_min&#39;vc.2" expl="postcondition" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="mimax&#39;_list_min&#39;vc.2.0" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.024915" steps="24"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.052854" steps="14154"/></proof>
+   </goal>
+   <goal name="mimax&#39;_list_min&#39;vc.2.1" expl="postcondition" proved="true">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.436369" steps="3893"/></proof>
+   <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.240970" steps="29376"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
  </goal>
  <goal name="minmax&#39;_list_upper_extend_true" proved="true">
- <proof prover="0"><result status="valid" time="0.056100" steps="839"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="minmax&#39;_list_upper_extend_true.0" proved="true">
+  <transf name="inline_goal" proved="true" >
+   <goal name="minmax&#39;_list_upper_extend_true.0.0" proved="true">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.622292" steps="6105"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.214194" steps="39067"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
  </goal>
  <goal name="minmax&#39;_list_upper_extend_false" proved="true">
- <proof prover="0"><result status="valid" time="0.076448" steps="867"/></proof>
- <transf name="unfold" proved="true" arg1="minmax&#39;_list_upper_bound">
+ <transf name="split_vc" proved="true" >
   <goal name="minmax&#39;_list_upper_extend_false.0" proved="true">
-  <proof prover="2"><result status="valid" time="0.130065" steps="40632"/></proof>
+  <transf name="inline_goal" proved="true" >
+   <goal name="minmax&#39;_list_upper_extend_false.0.0" proved="true">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.774577" steps="7000"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.230589" steps="39354"/></proof>
+   </goal>
+  </transf>
   </goal>
  </transf>
  </goal>
  <goal name="minmax&#39;_list_lower_extend_true" proved="true">
- <proof prover="0"><result status="valid" time="0.123123" steps="1146"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="minmax&#39;_list_lower_extend_true.0" proved="true">
+  <transf name="inline_goal" proved="true" >
+   <goal name="minmax&#39;_list_lower_extend_true.0.0" proved="true">
+   <transf name="split_vc" proved="true" >
+    <goal name="minmax&#39;_list_lower_extend_true.0.0.0" proved="true">
+    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.172830" steps="1253"/></proof>
+    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.160126" steps="31128"/></proof>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
  </goal>
  <goal name="minmax&#39;_list_lower_extend_false" proved="true">
- <proof prover="0"><result status="valid" time="0.144356" steps="1190"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="minmax&#39;_list_lower_extend_false.0" proved="true">
+  <transf name="inline_goal" proved="true" >
+   <goal name="minmax&#39;_list_lower_extend_false.0.0" proved="true">
+   <transf name="split_vc" proved="true" >
+    <goal name="minmax&#39;_list_lower_extend_false.0.0.0" proved="true">
+    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.148869" steps="1353"/></proof>
+    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.150475" steps="31468"/></proof>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
  </goal>
  <goal name="minmax&#39;_list_extendscore_true&#39;vc" expl="VC for minmax&#39;_list_extendscore_true" proved="true">
  <proof prover="0"><result status="valid" time="0.072333" steps="895"/></proof>
@@ -86,33 +179,44 @@
  </goal>
  <goal name="minmax&#39;_list_extendscore_false&#39;vc" expl="VC for minmax&#39;_list_extendscore_false" proved="true">
  <proof prover="0"><result status="valid" time="0.227335" steps="1494"/></proof>
+ <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.469237" steps="82255"/></proof>
  </goal>
  <goal name="minmax&#39;_list_infscore_true&#39;vc" expl="VC for minmax&#39;_list_infscore_true" proved="true">
  <proof prover="0"><result status="valid" time="0.596961" steps="6791"/></proof>
+ <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="3.366883" steps="1173646"/></proof>
  </goal>
  <goal name="minmax&#39;_list_supscore_false&#39;vc" expl="VC for minmax&#39;_list_supscore_false" proved="true">
  <proof prover="0"><result status="valid" time="0.691234" steps="6816"/></proof>
+ <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.675583" steps="68831"/></proof>
  </goal>
  <goal name="minmax&#39;_list_rev_l&#39;vc" expl="VC for minmax&#39;_list_rev_l" proved="true">
- <proof prover="1" timelimit="1"><result status="valid" time="0.132599" steps="405584"/></proof>
+ <transf name="remove" proved="true" arg1="zero1,one1,(-),(&gt;),(&lt;=),(&gt;=),abs,min,max,int63&#39;maxInt,int63&#39;minInt,min_int63,max_int63,to_int,in_bounds,zero,one,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,int63_min,int63_max,sub_list,height,height_list,minmax&#39;,minmax&#39;_list,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Abs_le,Abs_pos,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,Div_mod,Div_bound,Mod_bound,Div_sign_pos,Div_sign_neg,Mod_sign_pos,Mod_sign_neg,Rounds_toward_zero,Div_1,Mod_1,Div_inf,Mod_inf,Div_mult,Mod_mult,to_int_in_bounds,max_int&#39;def,min_int&#39;def,is_nil&#39;spec,Length_nonnegative,Length_nil,is_none&#39;spec,Append_assoc,Append_l_nil,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,Reverse_length,fold_left_append,int63_min&#39;spec,int63_min&#39;spec&#39;0,int63_max&#39;spec,int63_max&#39;spec&#39;0,height_list&#39;spec,height&#39;spec,height_list_max,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,minmax&#39;_list_extendscore_false,minmax&#39;_list_infscore_true,minmax&#39;_list_supscore_false">
+  <goal name="minmax&#39;_list_rev_l&#39;vc.0" expl="VC for minmax&#39;_list_rev_l" proved="true">
+  <proof prover="1" timelimit="0.01206"><path name="minmax-Top-minmaxqt_list_rev_lqtvc_1.smt2"/><result status="valid" time="0.017890" steps="20496"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.051368" steps="9486"/></proof>
+  </goal>
+ </transf>
  </goal>
  <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc" expl="VC for minmax&#39;_list_min_int_lower_bound" proved="true">
  <transf name="split_vc" proved="true" >
   <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc.0" expl="variant decrease" proved="true">
   <proof prover="0"><result status="valid" time="0.020690" steps="117"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.128378" steps="26613"/></proof>
   </goal>
   <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc.1" expl="precondition" proved="true">
   <proof prover="0"><result status="valid" time="0.023901" steps="140"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.142689" steps="29858"/></proof>
   </goal>
   <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc.2" expl="postcondition" proved="true">
   <transf name="split_vc" proved="true" >
    <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc.2.0" expl="postcondition" proved="true">
    <proof prover="0"><result status="valid" time="0.027753" steps="18"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.096692" steps="25109"/></proof>
    </goal>
    <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc.2.1" expl="postcondition" proved="true">
    <transf name="inline_goal" proved="true" >
     <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc.2.1.0" expl="postcondition" proved="true">
-    <proof prover="2" timelimit="1"><result status="valid" time="0.133336" steps="33339"/></proof>
+    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.133336" steps="33339"/></proof>
     </goal>
    </transf>
    </goal>
@@ -121,7 +225,7 @@
     <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc.2.2.0" expl="postcondition" proved="true">
     <transf name="split_all_full" proved="true" >
      <goal name="minmax&#39;_list_min_int_lower_bound&#39;vc.2.2.0.0" expl="postcondition" proved="true">
-     <proof prover="2" timelimit="1"><result status="valid" time="0.218198" steps="48316"/></proof>
+     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.218198" steps="48316"/></proof>
      </goal>
     </transf>
     </goal>
@@ -135,19 +239,22 @@
  <transf name="split_vc" proved="true" >
   <goal name="minmax&#39;_list_max_int_lower_bound&#39;vc.0" expl="variant decrease" proved="true">
   <proof prover="0"><result status="valid" time="0.036512" steps="115"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.141768" steps="26782"/></proof>
   </goal>
   <goal name="minmax&#39;_list_max_int_lower_bound&#39;vc.1" expl="precondition" proved="true">
   <proof prover="0"><result status="valid" time="0.032538" steps="137"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.144814" steps="30044"/></proof>
   </goal>
   <goal name="minmax&#39;_list_max_int_lower_bound&#39;vc.2" expl="postcondition" proved="true">
   <transf name="split_vc" proved="true" >
    <goal name="minmax&#39;_list_max_int_lower_bound&#39;vc.2.0" expl="postcondition" proved="true">
    <proof prover="0"><result status="valid" time="0.019789" steps="18"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.119394" steps="25272"/></proof>
    </goal>
    <goal name="minmax&#39;_list_max_int_lower_bound&#39;vc.2.1" expl="postcondition" proved="true">
    <transf name="inline_goal" proved="true" >
     <goal name="minmax&#39;_list_max_int_lower_bound&#39;vc.2.1.0" expl="postcondition" proved="true">
-    <proof prover="2" timelimit="1"><result status="valid" time="0.299906" steps="56627"/></proof>
+    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.299906" steps="56627"/></proof>
     </goal>
    </transf>
    </goal>
@@ -158,7 +265,7 @@
      <goal name="minmax&#39;_list_max_int_lower_bound&#39;vc.2.2.0.0" expl="postcondition" proved="true">
      <transf name="split_vc" proved="true" >
       <goal name="minmax&#39;_list_max_int_lower_bound&#39;vc.2.2.0.0.0" expl="postcondition" proved="true">
-      <proof prover="2" memlimit="2000"><result status="valid" time="1.274386" steps="176453"/></proof>
+      <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="1.274386" steps="176453"/></proof>
       </goal>
      </transf>
      </goal>
@@ -174,24 +281,33 @@
  <transf name="split_vc" proved="true" >
   <goal name="minmax&#39;_spec&#39;vc.0" expl="variant decrease" proved="true">
   <proof prover="0"><result status="valid" time="0.015580" steps="18"/></proof>
+  <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.146062" steps="23858"/></proof>
   </goal>
   <goal name="minmax&#39;_spec&#39;vc.1" expl="postcondition" proved="true">
   <transf name="split_vc" proved="true" >
    <goal name="minmax&#39;_spec&#39;vc.1.0" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.025749" steps="85"/></proof>
+   <transf name="destruct" proved="true" arg1="H">
+    <goal name="minmax&#39;_spec&#39;vc.1.0.0" expl="postcondition" proved="true">
+    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.014080" steps="98"/></proof>
+    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.134470" steps="33681"/></proof>
+    </goal>
+   </transf>
    </goal>
    <goal name="minmax&#39;_spec&#39;vc.1.1" expl="postcondition" proved="true">
    <transf name="split_vc" proved="true" >
     <goal name="minmax&#39;_spec&#39;vc.1.1.0" expl="postcondition" proved="true">
     <proof prover="0"><result status="valid" time="0.025218" steps="68"/></proof>
+    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.148028" steps="25943"/></proof>
     </goal>
     <goal name="minmax&#39;_spec&#39;vc.1.1.1" expl="postcondition" proved="true">
     <transf name="split_vc" proved="true" >
      <goal name="minmax&#39;_spec&#39;vc.1.1.1.0" expl="postcondition" proved="true">
      <proof prover="0"><result status="valid" time="0.097105" steps="819"/></proof>
+     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.137273" steps="28227"/></proof>
      </goal>
      <goal name="minmax&#39;_spec&#39;vc.1.1.1.1" expl="postcondition" proved="true">
      <proof prover="0"><result status="valid" time="0.084703" steps="826"/></proof>
+     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.152359" steps="28242"/></proof>
      </goal>
     </transf>
     </goal>
@@ -240,18 +356,12 @@
         </transf>
         </goal>
         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.1" expl="postcondition" proved="true">
-        <proof prover="2"><result status="valid" time="1.523703" steps="288030"/></proof>
-        <proof prover="3"><result status="valid" time="3.373838" steps="299974"/></proof>
         <transf name="split_vc" proved="true" >
          <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.1.0" expl="postcondition" proved="true">
-         <transf name="destruct" proved="true" arg1="H2">
+         <transf name="remove" proved="true" arg1="zero1,one1,(-),(&gt;),(&lt;=),(&gt;=),in_bounds,(!),is_none,hd,tl,reverse,fold_left,int63_min,int63_max,sub_list,height,height_list,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,ZeroLessOne,CompatOrderAdd,extensionality,Append_l_nil,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,Reverse_length,fold_left_append,int63_min&#39;spec&#39;0,int63_max&#39;spec&#39;0,height_list&#39;spec,height&#39;spec,height_list_max,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,minmax&#39;_list_extendscore_false,minmax&#39;_list_infscore_true,minmax&#39;_list_supscore_false,minmax&#39;_list_rev_l,minmax&#39;_list_min_int_lower_bound,minmax&#39;_list_max_int_lower_bound,H13,H9,H8,Ensures,H7,mem_append1,mem_append,reverse_mem1,reverse_mem,is_none&#39;spec1,is_none&#39;spec,int63_min&#39;spec1,int63_min&#39;spec,int63_max&#39;spec1,int63_max&#39;spec">
           <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.1.0.0" expl="postcondition" proved="true">
-          <proof prover="0" timelimit="10" memlimit="1500"><undone/></proof>
-          <proof prover="1" timelimit="10" memlimit="1500"><undone/></proof>
-          <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.765971" steps="156237"/></proof>
-          </goal>
-          <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.1.0.1" expl="postcondition" proved="true">
-          <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.553542" steps="121222"/></proof>
+          <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.474523" steps="4103"/></proof>
+          <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.133352" steps="20342"/></proof>
           </goal>
          </transf>
          </goal>
@@ -278,9 +388,16 @@
         </transf>
         </goal>
         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.1" expl="postcondition" proved="true">
-        <proof prover="0" timelimit="10" memlimit="1500"><result status="timeout" time="10.000000" steps="137227"/></proof>
-        <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="1.101131" steps="152593"/></proof>
-        <proof prover="3"><result status="valid" time="2.799308" steps="256378"/></proof>
+        <transf name="split_vc" proved="true" >
+         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.1.0" expl="postcondition" proved="true">
+         <transf name="remove" proved="true" arg1="zero1,one1,(-),(&gt;),(&lt;=),(&gt;=),min,max,one,(!),is_none,hd,tl,(++),reverse,fold_left,int63_min,int63_max,sub_list,height,height_list,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Max_comm,Min_assoc,Mod_1,Mod_mult,max_int&#39;def,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,Reverse_length,fold_left_append,int63_min&#39;spec&#39;0,int63_max&#39;spec&#39;0,height_list&#39;spec,mimax&#39;_list_max,mimax&#39;_list_min,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,minmax&#39;_list_extendscore_false,minmax&#39;_list_infscore_true,minmax&#39;_list_supscore_false,minmax&#39;_list_rev_l,minmax&#39;_list_min_int_lower_bound,minmax&#39;_list_max_int_lower_bound,H11,H9,H2,is_nil&#39;spec,mem_append1,mem_append,reverse_mem1,reverse_mem,is_none&#39;spec1,is_none&#39;spec,int63_min&#39;spec1,int63_min&#39;spec,int63_max&#39;spec1,int63_max&#39;spec">
+          <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.1.0.0" expl="postcondition" proved="true">
+          <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="5.694933" steps="85358"/></proof>
+          <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.099153" steps="20952"/></proof>
+          </goal>
+         </transf>
+         </goal>
+        </transf>
         </goal>
        </transf>
        </goal>
@@ -317,7 +434,12 @@
       <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0.0" expl="postcondition" proved="true">
       <transf name="split_all_full" proved="true" >
        <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0.0.0" expl="postcondition" proved="true">
-       <proof prover="3"><result status="valid" time="1.709179" steps="223054"/></proof>
+       <transf name="remove" proved="true" arg1="zero1,one1,(-),(&gt;),(&lt;=),(&gt;=),abs,min,max,int63&#39;maxInt,int63&#39;minInt,min_int63,max_int63,to_int,in_bounds,zero,one,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,int63_min,int63_max,sub_list,height,height_list,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Abs_pos,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,Div_mod,Div_sign_pos,Div_sign_neg,Mod_sign_pos,Mod_sign_neg,Rounds_toward_zero,Div_1,Mod_1,Div_inf,Mod_inf,Div_mult,Mod_mult,to_int_in_bounds,extensionality,max_int&#39;def,min_int&#39;def,Length_nonnegative,Append_assoc,Append_l_nil,Append_length,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,Reverse_length,fold_left_append,int63_min&#39;spec&#39;0,int63_max&#39;spec&#39;0,height_list&#39;spec,height&#39;spec,height_list_max,mimax&#39;_list_max,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,minmax&#39;_list_extendscore_false,minmax&#39;_list_infscore_true,minmax&#39;_list_supscore_false,minmax&#39;_list_rev_l,minmax&#39;_list_min_int_lower_bound,minmax&#39;_list_max_int_lower_bound,H4,H3,Ensures2,H2,H1,H,H9,H8,H7,H6,Abs_le2,Abs_le1,Abs_le,Div_bound1,Div_bound,Mod_bound1,Mod_bound,is_nil&#39;spec1,is_nil&#39;spec,Length_nil1,Length_nil,mem_append2,mem_append1,mem_append,reverse_mem1,reverse_mem,is_none&#39;spec1,is_none&#39;spec,int63_min&#39;spec1,int63_min&#39;spec,int63_max&#39;spec1,int63_max&#39;spec,minmax&#39;_list_max_in,minmax&#39;_list_min_in1,minmax&#39;_list_min_in,Ensures1,Ensures">
+        <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0.0.0.0" expl="postcondition" proved="true">
+        <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.022584" steps="72"/></proof>
+        <proof prover="3" timelimit="0.040407"><result status="valid" time="0.042478"/></proof>
+        </goal>
+       </transf>
        </goal>
       </transf>
       </goal>
@@ -330,7 +452,12 @@
        <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0.0" expl="postcondition" proved="true">
        <transf name="split_all_full" proved="true" >
         <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0.0.0" expl="postcondition" proved="true">
-        <proof prover="3"><result status="valid" time="0.794859" steps="129168"/></proof>
+        <transf name="remove" proved="true" arg1="zero1,one1,(-),(&gt;),(&lt;=),(&gt;=),abs,min,max,int63&#39;maxInt,int63&#39;minInt,min_int63,max_int63,to_int,in_bounds,zero,one,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,int63_min,int63_max,sub_list,height,height_list,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Abs_pos,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,Div_mod,Div_sign_pos,Div_sign_neg,Mod_sign_pos,Mod_sign_neg,Rounds_toward_zero,Div_1,Mod_1,Div_inf,Mod_inf,Div_mult,Mod_mult,to_int_in_bounds,extensionality,max_int&#39;def,min_int&#39;def,Length_nonnegative,Append_assoc,Append_l_nil,Append_length,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,Reverse_length,fold_left_append,int63_min&#39;spec&#39;0,int63_max&#39;spec&#39;0,height_list&#39;spec,height&#39;spec,height_list_max,mimax&#39;_list_min,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,minmax&#39;_list_extendscore_false,minmax&#39;_list_infscore_true,minmax&#39;_list_supscore_false,minmax&#39;_list_rev_l,minmax&#39;_list_min_int_lower_bound,minmax&#39;_list_max_int_lower_bound,H7,H6,Ensures,H5,H3,H12,H11,H10,H9,H2,Abs_le2,Abs_le1,Abs_le,Div_bound1,Div_bound,Mod_bound1,Mod_bound,is_nil&#39;spec1,is_nil&#39;spec,Length_nil1,Length_nil,mem_append2,mem_append1,mem_append,reverse_mem1,reverse_mem,is_none&#39;spec1,is_none&#39;spec,int63_min&#39;spec1,int63_min&#39;spec,int63_max&#39;spec1,int63_max&#39;spec,minmax&#39;_list_max_in,minmax&#39;_list_min_in">
+         <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0.0.0.0" expl="postcondition" proved="true">
+         <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.025101" steps="83"/></proof>
+         <proof prover="3" timelimit="10" memlimit="1500"><result status="valid" time="0.064325" steps="7485"/></proof>
+         </goal>
+        </transf>
         </goal>
        </transf>
        </goal>
@@ -509,9 +636,12 @@
     <proof prover="2"><result status="valid" time="0.070894" steps="29615"/></proof>
     </goal>
     <goal name="alphabeta&#39;vc.7.5.1" expl="postcondition" proved="true">
-    <proof prover="0" timelimit="10" memlimit="1500"><undone/></proof>
-    <proof prover="1" timelimit="10" memlimit="1500"><undone/></proof>
-    <proof prover="2"><result status="valid" time="0.866598" steps="138487"/></proof>
+    <transf name="remove" proved="true" arg1="zero1,one1,(-),(&gt;),(&lt;=),(&gt;=),min,max,int63&#39;maxInt,zero,one,is_nil,length,(++),minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,Rounds_toward_zero,Div_1,Mod_1,Div_inf,Mod_inf,Div_mult,Mod_mult,max_int&#39;def,min_int&#39;def,is_nil&#39;spec,Length_nonnegative,Append_assoc,Append_l_nil,int63_max&#39;spec&#39;0,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,minmax&#39;_list_extendscore_false,minmax&#39;_list_infscore_true,minmax&#39;_list_supscore_false,minmax&#39;_list_rev_l,minmax&#39;_list_min_int_lower_bound,minmax&#39;_list_max_int_lower_bound,minmax&#39;_list_spec,minmax&#39;_spec,H8,H4">
+     <goal name="alphabeta&#39;vc.7.5.1.0" expl="postcondition" proved="true">
+     <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.509755" steps="3477"/></proof>
+     <proof prover="2" timelimit="10" memlimit="1500"><path name="minmax-Top-alphabetaqtvc_2.smt2"/><result status="valid" time="0.315657" steps="46005"/></proof>
+     </goal>
+    </transf>
     </goal>
    </transf>
    </goal>
@@ -628,12 +758,13 @@
    <proof prover="2"><result status="valid" time="0.237898" steps="44328"/></proof>
    </goal>
    <goal name="alphabeta&#39;vc.20.1" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.252419" steps="44625"/></proof>
    <transf name="split_vc" proved="true" >
     <goal name="alphabeta&#39;vc.20.1.0" expl="postcondition" proved="true">
+    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.023540" steps="24"/></proof>
     <proof prover="1"><result status="valid" time="0.019941" steps="31199"/></proof>
     </goal>
     <goal name="alphabeta&#39;vc.20.1.1" expl="postcondition" proved="true">
+    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.025965" steps="31"/></proof>
     <proof prover="1"><result status="valid" time="0.016114" steps="123778"/></proof>
     </goal>
    </transf>
