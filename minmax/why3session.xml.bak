@@ -8,86 +8,52 @@
 <prover id="3" name="CVC5" version="1.1.2" timelimit="10" steplimit="0" memlimit="1500"/>
 <file format="whyml" proved="true">
 <path name=".."/><path name="minmax.mlw"/>
-<theory name="Height" proved="true">
- <goal name="height&#39;vc" expl="VC for height" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="height&#39;vc.0" expl="variant decrease" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="height&#39;vc.0.0" expl="variant decrease" proved="true">
-   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.008950" steps="6"/></proof>
-   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.035826" steps="3129"/></proof>
-   </goal>
-  </transf>
-  </goal>
-  <goal name="height&#39;vc.1" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="height&#39;vc.1.0" expl="postcondition" proved="true">
-   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.007780" steps="4"/></proof>
-   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.000001" steps="2696"/></proof>
-   </goal>
-   <goal name="height&#39;vc.1.1" expl="postcondition" proved="true">
-   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.008293" steps="6"/></proof>
-   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.013780" steps="2903"/></proof>
-   </goal>
-  </transf>
-  </goal>
- </transf>
- </goal>
- <goal name="height_list&#39;vc" expl="VC for height_list" proved="true">
- <proof prover="0"><result status="valid" time="0.010816" steps="59"/></proof>
- <proof prover="3"><result status="valid" time="0.023914" steps="2002"/></proof>
- </goal>
- <goal name="height_list_max&#39;vc" expl="VC for height_list_max" proved="true">
- <proof prover="0"><result status="valid" time="0.012711" steps="88"/></proof>
- <proof prover="3"><result status="valid" time="0.015345" steps="3970"/></proof>
- </goal>
-</theory>
-<theory name="MinMax" proved="true">
- <goal name="Make.MinMaxOrder.min&#39;vc" expl="VC for min" proved="true">
+<theory name="MinMax">
+ <goal name="Make.MinMaxOrder.min&#39;vc" expl="VC for min">
  <proof prover="0"><result status="valid" time="0.014506" steps="21"/></proof>
  <proof prover="3"><result status="valid" time="0.030326" steps="3308"/></proof>
  </goal>
- <goal name="Make.MinMaxOrder.max&#39;vc" expl="VC for max" proved="true">
+ <goal name="Make.MinMaxOrder.max&#39;vc" expl="VC for max">
  <proof prover="0"><result status="valid" time="0.013155" steps="21"/></proof>
  <proof prover="3"><result status="valid" time="0.022962" steps="3434"/></proof>
  </goal>
- <goal name="Make.minmax&#39;&#39;vc" expl="VC for minmax&#39;" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;&#39;vc" expl="VC for minmax&#39;">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.010322" steps="9"/></proof>
   <proof prover="3"><result status="valid" time="0.037522" steps="7031"/></proof>
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list&#39;vc" expl="VC for minmax&#39;_list" proved="true">
+ <goal name="Make.minmax&#39;_list&#39;vc" expl="VC for minmax&#39;_list">
  <proof prover="0"><result status="valid" time="0.014942" steps="82"/></proof>
  <proof prover="3"><result status="valid" time="0.018554" steps="5572"/></proof>
  </goal>
- <goal name="Make.minmax&#39;_list_max_in&#39;vc" expl="VC for minmax&#39;_list_max_in" proved="true">
+ <goal name="Make.minmax&#39;_list_max_in&#39;vc" expl="VC for minmax&#39;_list_max_in">
  <proof prover="0"><result status="valid" time="0.054245" steps="790"/></proof>
  <proof prover="3"><result status="valid" time="0.288214" steps="43132"/></proof>
  </goal>
- <goal name="Make.minmax&#39;_list_min_in&#39;vc" expl="VC for minmax&#39;_list_min_in" proved="true">
+ <goal name="Make.minmax&#39;_list_min_in&#39;vc" expl="VC for minmax&#39;_list_min_in">
  <proof prover="0"><result status="valid" time="0.048845" steps="734"/></proof>
  <proof prover="3"><result status="valid" time="0.114221" steps="26199"/></proof>
  </goal>
- <goal name="Make.mimax&#39;_list_max&#39;vc" expl="VC for mimax&#39;_list_max" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="mimax&#39;_list_max&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.mimax&#39;_list_max&#39;vc" expl="VC for mimax&#39;_list_max">
+ <transf name="split_vc" >
+  <goal name="mimax&#39;_list_max&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.011677" steps="40"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.051100" steps="12380"/></proof>
   </goal>
-  <goal name="mimax&#39;_list_max&#39;vc.1" expl="variant decrease" proved="true">
+  <goal name="mimax&#39;_list_max&#39;vc.1" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.000001" steps="41"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.042682" steps="12386"/></proof>
   </goal>
-  <goal name="mimax&#39;_list_max&#39;vc.2" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="mimax&#39;_list_max&#39;vc.2.0" expl="postcondition" proved="true">
+  <goal name="mimax&#39;_list_max&#39;vc.2" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="mimax&#39;_list_max&#39;vc.2.0" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.013787" steps="8"/></proof>
    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.024198" steps="11329"/></proof>
    </goal>
-   <goal name="mimax&#39;_list_max&#39;vc.2.1" expl="postcondition" proved="true">
+   <goal name="mimax&#39;_list_max&#39;vc.2.1" expl="postcondition">
    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.112529" steps="1780"/></proof>
    <proof prover="3"><result status="valid" time="0.118342" steps="22777"/></proof>
    </goal>
@@ -95,23 +61,23 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.mimax&#39;_list_min&#39;vc" expl="VC for mimax&#39;_list_min" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="mimax&#39;_list_min&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.mimax&#39;_list_min&#39;vc" expl="VC for mimax&#39;_list_min">
+ <transf name="split_vc" >
+  <goal name="mimax&#39;_list_min&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.004882" steps="40"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.040415" steps="12602"/></proof>
   </goal>
-  <goal name="mimax&#39;_list_min&#39;vc.1" expl="variant decrease" proved="true">
+  <goal name="mimax&#39;_list_min&#39;vc.1" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.011715" steps="41"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.039769" steps="12608"/></proof>
   </goal>
-  <goal name="mimax&#39;_list_min&#39;vc.2" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="mimax&#39;_list_min&#39;vc.2.0" expl="postcondition" proved="true">
+  <goal name="mimax&#39;_list_min&#39;vc.2" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="mimax&#39;_list_min&#39;vc.2.0" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.009720" steps="8"/></proof>
    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.033142" steps="11517"/></proof>
    </goal>
-   <goal name="mimax&#39;_list_min&#39;vc.2.1" expl="postcondition" proved="true">
+   <goal name="mimax&#39;_list_min&#39;vc.2.1" expl="postcondition">
    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.106133" steps="1723"/></proof>
    <proof prover="3"><result status="valid" time="0.103497" steps="21130"/></proof>
    </goal>
@@ -119,11 +85,11 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_upper_extend_true" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_upper_extend_true.0" proved="true">
-  <transf name="inline_goal" proved="true" >
-   <goal name="minmax&#39;_list_upper_extend_true.0.0" proved="true">
+ <goal name="Make.minmax&#39;_list_upper_extend_true">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_upper_extend_true.0">
+  <transf name="inline_goal" >
+   <goal name="minmax&#39;_list_upper_extend_true.0.0">
    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.632425" steps="10145"/></proof>
    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.253627" steps="48922"/></proof>
    </goal>
@@ -131,11 +97,11 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_upper_extend_false" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_upper_extend_false.0" proved="true">
-  <transf name="inline_goal" proved="true" >
-   <goal name="minmax&#39;_list_upper_extend_false.0.0" proved="true">
+ <goal name="Make.minmax&#39;_list_upper_extend_false">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_upper_extend_false.0">
+  <transf name="inline_goal" >
+   <goal name="minmax&#39;_list_upper_extend_false.0.0">
    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.437257" steps="8281"/></proof>
    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.196751" steps="49132"/></proof>
    </goal>
@@ -143,13 +109,13 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_lower_extend_true" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_lower_extend_true.0" proved="true">
-  <transf name="inline_goal" proved="true" >
-   <goal name="minmax&#39;_list_lower_extend_true.0.0" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="minmax&#39;_list_lower_extend_true.0.0.0" proved="true">
+ <goal name="Make.minmax&#39;_list_lower_extend_true">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_lower_extend_true.0">
+  <transf name="inline_goal" >
+   <goal name="minmax&#39;_list_lower_extend_true.0.0">
+   <transf name="split_vc" >
+    <goal name="minmax&#39;_list_lower_extend_true.0.0.0">
     <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.124076" steps="1961"/></proof>
     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.087385" steps="33713"/></proof>
     </goal>
@@ -159,13 +125,13 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_lower_extend_false" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_lower_extend_false.0" proved="true">
-  <transf name="inline_goal" proved="true" >
-   <goal name="minmax&#39;_list_lower_extend_false.0.0" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="minmax&#39;_list_lower_extend_false.0.0.0" proved="true">
+ <goal name="Make.minmax&#39;_list_lower_extend_false">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_lower_extend_false.0">
+  <transf name="inline_goal" >
+   <goal name="minmax&#39;_list_lower_extend_false.0.0">
+   <transf name="split_vc" >
+    <goal name="minmax&#39;_list_lower_extend_false.0.0.0">
     <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.104730" steps="1768"/></proof>
     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.115902" steps="34010"/></proof>
     </goal>
@@ -175,19 +141,19 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_extendscore_true&#39;vc" expl="VC for minmax&#39;_list_extendscore_true" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_extendscore_true&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;_list_extendscore_true&#39;vc" expl="VC for minmax&#39;_list_extendscore_true">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_extendscore_true&#39;vc.0" expl="variant decrease">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.014681" steps="93"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.032275" steps="22272"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_extendscore_true&#39;vc.1" expl="precondition" proved="true">
+  <goal name="minmax&#39;_list_extendscore_true&#39;vc.1" expl="precondition">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.005400" steps="17"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.057323" steps="21819"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_extendscore_true&#39;vc.2" expl="postcondition" proved="true">
-  <transf name="remove" proved="true" arg1="zero,one,(-),(&gt;&#39;),(&lt;=&#39;),(&gt;=&#39;),min1,max1,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,height,height_list,min,sub_list,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,score&#39;unused,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,is_nil&#39;spec,Length_nonnegative,Length_nil,is_none&#39;spec,Append_assoc,Append_l_nil,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,reverse_mem,Reverse_length,fold_left_append,height_list&#39;spec,height&#39;spec,height_list_max,all_in_bounds,lt_not_refl,full_order,min&#39;spec,min&#39;spec&#39;0,max&#39;spec,max&#39;spec&#39;0,minmax&#39;_list_min_in,mimax&#39;_list_max,mimax&#39;_list_min,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false">
-   <goal name="minmax&#39;_list_extendscore_true&#39;vc.2.0" expl="postcondition" proved="true">
+  <goal name="minmax&#39;_list_extendscore_true&#39;vc.2" expl="postcondition">
+  <transf name="remove" arg1="zero,one,(-),(&gt;&#39;),(&lt;=&#39;),(&gt;=&#39;),min1,max1,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,height,height_list,min,sub_list,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,score&#39;unused,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,is_nil&#39;spec,Length_nonnegative,Length_nil,is_none&#39;spec,Append_assoc,Append_l_nil,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,reverse_mem,Reverse_length,fold_left_append,height_list&#39;spec,height&#39;spec,height_list_max,all_in_bounds,lt_not_refl,full_order,min&#39;spec,min&#39;spec&#39;0,max&#39;spec,max&#39;spec&#39;0,minmax&#39;_list_min_in,mimax&#39;_list_max,mimax&#39;_list_min,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false">
+   <goal name="minmax&#39;_list_extendscore_true&#39;vc.2.0" expl="postcondition">
    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.046564" steps="480"/></proof>
    <proof prover="3" timelimit="0.02856"><result status="valid" time="0.029310" steps="7015"/></proof>
    </goal>
@@ -195,19 +161,19 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_extendscore_false&#39;vc" expl="VC for minmax&#39;_list_extendscore_false" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_extendscore_false&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;_list_extendscore_false&#39;vc" expl="VC for minmax&#39;_list_extendscore_false">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_extendscore_false&#39;vc.0" expl="variant decrease">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.016559" steps="93"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.051134" steps="22484"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_extendscore_false&#39;vc.1" expl="precondition" proved="true">
+  <goal name="minmax&#39;_list_extendscore_false&#39;vc.1" expl="precondition">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.013471" steps="17"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.064206" steps="22033"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_extendscore_false&#39;vc.2" expl="postcondition" proved="true">
-  <transf name="remove" proved="true" arg1="zero,one,(-),(&gt;&#39;),(&lt;=&#39;),(&gt;=&#39;),min1,max1,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,score&#39;unused,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,is_nil&#39;spec,Length_nonnegative,Length_nil,is_none&#39;spec,Append_assoc,Append_l_nil,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,reverse_mem,Reverse_length,fold_left_append,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,H">
-   <goal name="minmax&#39;_list_extendscore_false&#39;vc.2.0" expl="postcondition" proved="true">
+  <goal name="minmax&#39;_list_extendscore_false&#39;vc.2" expl="postcondition">
+  <transf name="remove" arg1="zero,one,(-),(&gt;&#39;),(&lt;=&#39;),(&gt;=&#39;),min1,max1,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,score&#39;unused,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,is_nil&#39;spec,Length_nonnegative,Length_nil,is_none&#39;spec,Append_assoc,Append_l_nil,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,reverse_mem,Reverse_length,fold_left_append,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,H">
+   <goal name="minmax&#39;_list_extendscore_false&#39;vc.2.0" expl="postcondition">
    <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="9.294644" steps="115198"/></proof>
    <proof prover="3" timelimit="0.037258"><result status="valid" time="0.019156" steps="7704"/></proof>
    </goal>
@@ -215,90 +181,90 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_infscore_true&#39;vc" expl="VC for minmax&#39;_list_infscore_true" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_infscore_true&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;_list_infscore_true&#39;vc" expl="VC for minmax&#39;_list_infscore_true">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.0" expl="variant decrease">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.019760" steps="123"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.056274" steps="22905"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_infscore_true&#39;vc.1" expl="precondition" proved="true">
-  <transf name="remove" proved="true" arg1="zero,one,(-),(&gt;&#39;),(&lt;=&#39;),(&gt;=&#39;),min1,max1,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,height,height_list,(&gt;),min,max,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,is_nil&#39;spec,Length_nonnegative,Length_nil,is_none&#39;spec,Append_assoc,Append_l_nil,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,reverse_mem,Reverse_length,fold_left_append,height&#39;spec,height_list_max,lt_not_refl,full_order,min&#39;spec,min&#39;spec&#39;0,mimax&#39;_list_min,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,H2,H1">
-   <goal name="minmax&#39;_list_infscore_true&#39;vc.1.0" expl="precondition" proved="true">
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.1" expl="precondition">
+  <transf name="remove" arg1="zero,one,(-),(&gt;&#39;),(&lt;=&#39;),(&gt;=&#39;),min1,max1,(!),is_nil,length,mem,is_none,hd,tl,(++),reverse,fold_left,height,height_list,(&gt;),min,max,minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,is_nil&#39;spec,Length_nonnegative,Length_nil,is_none&#39;spec,Append_assoc,Append_l_nil,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,reverse_mem,Reverse_length,fold_left_append,height&#39;spec,height_list_max,lt_not_refl,full_order,min&#39;spec,min&#39;spec&#39;0,mimax&#39;_list_min,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,H2,H1">
+   <goal name="minmax&#39;_list_infscore_true&#39;vc.1.0" expl="precondition">
    <proof prover="1" timelimit="10" memlimit="1500"><result status="valid" time="0.037356" steps="221122"/></proof>
    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.017810" steps="10103"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="minmax&#39;_list_infscore_true&#39;vc.2" expl="variant decrease" proved="true">
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.2" expl="variant decrease">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.018214" steps="121"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.027788" steps="22891"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_infscore_true&#39;vc.3" expl="precondition" proved="true">
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.3" expl="precondition">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.045968" steps="772"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.176582" steps="49802"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_infscore_true&#39;vc.4" expl="postcondition" proved="true">
+  <goal name="minmax&#39;_list_infscore_true&#39;vc.4" expl="postcondition">
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.389255" steps="69580"/></proof>
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_supscore_false&#39;vc" expl="VC for minmax&#39;_list_supscore_false" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_supscore_false&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;_list_supscore_false&#39;vc" expl="VC for minmax&#39;_list_supscore_false">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_supscore_false&#39;vc.0" expl="variant decrease">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.009445" steps="120"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.068392" steps="23193"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_supscore_false&#39;vc.1" expl="precondition" proved="true">
+  <goal name="minmax&#39;_list_supscore_false&#39;vc.1" expl="precondition">
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.623163" steps="85962"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_supscore_false&#39;vc.2" expl="variant decrease" proved="true">
+  <goal name="minmax&#39;_list_supscore_false&#39;vc.2" expl="variant decrease">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.016442" steps="121"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.060552" steps="23175"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_supscore_false&#39;vc.3" expl="precondition" proved="true">
+  <goal name="minmax&#39;_list_supscore_false&#39;vc.3" expl="precondition">
   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.039065" steps="699"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.228658" steps="50370"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_supscore_false&#39;vc.4" expl="postcondition" proved="true">
+  <goal name="minmax&#39;_list_supscore_false&#39;vc.4" expl="postcondition">
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.389392" steps="69370"/></proof>
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_rev_l&#39;vc" expl="VC for minmax&#39;_list_rev_l" proved="true">
- <transf name="remove" proved="true" arg1="zero,one,(-),(&gt;&#39;),(&lt;=&#39;),(&gt;=&#39;),min1,max1,(!),is_nil,is_none,hd,tl,(++),reverse,fold_left,height,height_list,(&gt;),minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,is_nil&#39;spec,is_none&#39;spec,Append_assoc,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,Reverse_length,fold_left_append,height_list&#39;spec,height&#39;spec,height_list_max,full_order,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,minmax&#39;_list_extendscore_false,minmax&#39;_list_infscore_true,minmax&#39;_list_supscore_false">
-  <goal name="minmax&#39;_list_rev_l&#39;vc.0" expl="VC for minmax&#39;_list_rev_l" proved="true">
+ <goal name="Make.minmax&#39;_list_rev_l&#39;vc" expl="VC for minmax&#39;_list_rev_l">
+ <transf name="remove" arg1="zero,one,(-),(&gt;&#39;),(&lt;=&#39;),(&gt;=&#39;),min1,max1,(!),is_nil,is_none,hd,tl,(++),reverse,fold_left,height,height_list,(&gt;),minmax&#39;_list_upper_bound,minmax&#39;_list_lower_bound,minmax&#39;_upper_bound,minmax&#39;_lower_bound,Assoc1,Unit_def_l,Unit_def_r,Inv_def_l,Inv_def_r,Comm1,Assoc,Mul_distr_l,Mul_distr_r,Comm,Unitary,NonTrivialRing,Refl,Trans,Antisymm,Total,ZeroLessOne,CompatOrderAdd,CompatOrderMult,Min_r,Max_l,Min_comm,Max_comm,Min_assoc,Max_assoc,is_nil&#39;spec,is_none&#39;spec,Append_assoc,Append_length,mem_append,mem_decomp,reverse_append,reverse_cons,cons_reverse,reverse_reverse,Reverse_length,fold_left_append,height_list&#39;spec,height&#39;spec,height_list_max,full_order,minmax&#39;_list_upper_extend_true,minmax&#39;_list_upper_extend_false,minmax&#39;_list_lower_extend_true,minmax&#39;_list_lower_extend_false,minmax&#39;_list_extendscore_true,minmax&#39;_list_extendscore_false,minmax&#39;_list_infscore_true,minmax&#39;_list_supscore_false">
+  <goal name="minmax&#39;_list_rev_l&#39;vc.0" expl="VC for minmax&#39;_list_rev_l">
   <proof prover="3"><result status="valid" time="0.045138" steps="11336"/></proof>
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_min_t_lower_bound&#39;vc" expl="VC for minmax&#39;_list_min_t_lower_bound" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;_list_min_t_lower_bound&#39;vc" expl="VC for minmax&#39;_list_min_t_lower_bound">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.014179" steps="86"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.044893" steps="22776"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.1" expl="precondition" proved="true">
+  <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.1" expl="precondition">
   <proof prover="0"><result status="valid" time="0.017544" steps="62"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.047076" steps="22300"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.0" expl="postcondition" proved="true">
+  <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.0" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.015325" steps="6"/></proof>
    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.040776" steps="21897"/></proof>
    </goal>
-   <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.1" expl="postcondition" proved="true">
-   <transf name="inline_goal" proved="true" >
-    <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.1.0" expl="postcondition" proved="true">
+   <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.1" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.1.0" expl="postcondition">
     <proof prover="3"><result status="valid" time="0.246866" steps="34432"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.2" expl="postcondition" proved="true">
-   <transf name="inline_goal" proved="true" >
-    <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.2.0" expl="postcondition" proved="true">
-    <transf name="split_all_full" proved="true" >
-     <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.2.0.0" expl="postcondition" proved="true">
+   <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.2" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.2.0" expl="postcondition">
+    <transf name="split_all_full" >
+     <goal name="minmax&#39;_list_min_t_lower_bound&#39;vc.2.2.0.0" expl="postcondition">
      <proof prover="3"><result status="valid" time="0.655164" steps="61261"/></proof>
      </goal>
     </transf>
@@ -309,36 +275,36 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_max_t_lower_bound&#39;vc" expl="VC for minmax&#39;_list_max_t_lower_bound" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;_list_max_t_lower_bound&#39;vc" expl="VC for minmax&#39;_list_max_t_lower_bound">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.015728" steps="87"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.037177" steps="22948"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.1" expl="precondition" proved="true">
+  <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.1" expl="precondition">
   <proof prover="0"><result status="valid" time="0.014627" steps="62"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.056608" steps="22470"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.0" expl="postcondition" proved="true">
+  <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.0" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.010439" steps="6"/></proof>
    <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.051668" steps="22060"/></proof>
    </goal>
-   <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.1" expl="postcondition" proved="true">
-   <transf name="inline_goal" proved="true" >
-    <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.1.0" expl="postcondition" proved="true">
+   <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.1" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.1.0" expl="postcondition">
     <proof prover="3"><result status="valid" time="0.286630" steps="33076"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.2" expl="postcondition" proved="true">
-   <transf name="inline_goal" proved="true" >
-    <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.2.0" expl="postcondition" proved="true">
-    <transf name="split_all_full" proved="true" >
-     <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.2.0.0" expl="postcondition" proved="true">
-     <transf name="split_vc" proved="true" >
-      <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.2.0.0.0" expl="postcondition" proved="true">
+   <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.2" expl="postcondition">
+   <transf name="inline_goal" >
+    <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.2.0" expl="postcondition">
+    <transf name="split_all_full" >
+     <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.2.0.0" expl="postcondition">
+     <transf name="split_vc" >
+      <goal name="minmax&#39;_list_max_t_lower_bound&#39;vc.2.2.0.0.0" expl="postcondition">
       <proof prover="3"><result status="valid" time="1.039573" steps="72731"/></proof>
       </goal>
      </transf>
@@ -351,35 +317,35 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_spec&#39;vc" expl="VC for minmax&#39;_spec" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_spec&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;_spec&#39;vc" expl="VC for minmax&#39;_spec">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_spec&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.012947" steps="11"/></proof>
   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.054957" steps="21004"/></proof>
   </goal>
-  <goal name="minmax&#39;_spec&#39;vc.1" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="minmax&#39;_spec&#39;vc.1.0" expl="postcondition" proved="true">
-   <transf name="destruct" proved="true" arg1="H">
-    <goal name="minmax&#39;_spec&#39;vc.1.0.0" expl="postcondition" proved="true">
+  <goal name="minmax&#39;_spec&#39;vc.1" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="minmax&#39;_spec&#39;vc.1.0" expl="postcondition">
+   <transf name="destruct" arg1="H">
+    <goal name="minmax&#39;_spec&#39;vc.1.0.0" expl="postcondition">
     <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.017871" steps="85"/></proof>
     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.069345" steps="28251"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="minmax&#39;_spec&#39;vc.1.1" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="minmax&#39;_spec&#39;vc.1.1.0" expl="postcondition" proved="true">
+   <goal name="minmax&#39;_spec&#39;vc.1.1" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="minmax&#39;_spec&#39;vc.1.1.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.014872" steps="56"/></proof>
     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.041863" steps="22362"/></proof>
     </goal>
-    <goal name="minmax&#39;_spec&#39;vc.1.1.1" expl="postcondition" proved="true">
-    <transf name="split_vc" proved="true" >
-     <goal name="minmax&#39;_spec&#39;vc.1.1.1.0" expl="postcondition" proved="true">
+    <goal name="minmax&#39;_spec&#39;vc.1.1.1" expl="postcondition">
+    <transf name="split_vc" >
+     <goal name="minmax&#39;_spec&#39;vc.1.1.1.0" expl="postcondition">
      <proof prover="0"><result status="valid" time="0.053972" steps="589"/></proof>
      <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.068573" steps="23968"/></proof>
      </goal>
-     <goal name="minmax&#39;_spec&#39;vc.1.1.1.1" expl="postcondition" proved="true">
+     <goal name="minmax&#39;_spec&#39;vc.1.1.1.1" expl="postcondition">
      <proof prover="0"><result status="valid" time="0.043905" steps="508"/></proof>
      <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.072876" steps="23978"/></proof>
      </goal>
@@ -391,47 +357,47 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;_list_spec&#39;vc" expl="VC for minmax&#39;_list_spec" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;_list_spec&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;_list_spec&#39;vc" expl="VC for minmax&#39;_list_spec">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;_list_spec&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.012518" steps="38"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.025928" steps="14833"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_spec&#39;vc.1" expl="variant decrease" proved="true">
+  <goal name="minmax&#39;_list_spec&#39;vc.1" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.018177" steps="129"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.014030" steps="16856"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_spec&#39;vc.2" expl="variant decrease" proved="true">
+  <goal name="minmax&#39;_list_spec&#39;vc.2" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.018422" steps="131"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.029570" steps="16856"/></proof>
   </goal>
-  <goal name="minmax&#39;_list_spec&#39;vc.3" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="minmax&#39;_list_spec&#39;vc.3.0" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="minmax&#39;_list_spec&#39;vc.3.0.0" expl="postcondition" proved="true">
+  <goal name="minmax&#39;_list_spec&#39;vc.3" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="minmax&#39;_list_spec&#39;vc.3.0" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="minmax&#39;_list_spec&#39;vc.3.0.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.014263" steps="37"/></proof>
     <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.049529" steps="16777"/></proof>
     </goal>
-    <goal name="minmax&#39;_list_spec&#39;vc.3.0.1" expl="postcondition" proved="true">
-    <transf name="split_vc" proved="true" >
-     <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0" expl="postcondition" proved="true">
-     <transf name="split_vc" proved="true" >
-      <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0" expl="postcondition" proved="true">
-      <transf name="inline_goal" proved="true" >
-       <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0" expl="postcondition" proved="true">
-       <transf name="split_all_full" proved="true" >
-        <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.0" expl="postcondition" proved="true">
-        <transf name="split_vc" proved="true" >
-         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.0.0" expl="postcondition" proved="true">
+    <goal name="minmax&#39;_list_spec&#39;vc.3.0.1" expl="postcondition">
+    <transf name="split_vc" >
+     <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0" expl="postcondition">
+     <transf name="split_vc" >
+      <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0" expl="postcondition">
+      <transf name="inline_goal" >
+       <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0" expl="postcondition">
+       <transf name="split_all_full" >
+        <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.0" expl="postcondition">
+        <transf name="split_vc" >
+         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.0.0" expl="postcondition">
          <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.330999" steps="6154"/></proof>
          <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.076951" steps="19733"/></proof>
          </goal>
         </transf>
         </goal>
-        <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.1" expl="postcondition" proved="true">
-        <transf name="split_vc" proved="true" >
-         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.1.0" expl="postcondition" proved="true">
+        <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.1" expl="postcondition">
+        <transf name="split_vc" >
+         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.0.0.0.1.0" expl="postcondition">
          <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="3.620702" steps="364141"/></proof>
          <proof prover="3"><result status="valid" time="8.463126" steps="325824"/></proof>
          </goal>
@@ -443,23 +409,23 @@
       </goal>
      </transf>
      </goal>
-     <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1" expl="postcondition" proved="true">
-     <transf name="split_vc" proved="true" >
-      <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0" expl="postcondition" proved="true">
-      <transf name="inline_goal" proved="true" >
-       <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0" expl="postcondition" proved="true">
-       <transf name="split_all_full" proved="true" >
-        <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.0" expl="postcondition" proved="true">
-        <transf name="split_vc" proved="true" >
-         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.0.0" expl="postcondition" proved="true">
+     <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1" expl="postcondition">
+     <transf name="split_vc" >
+      <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0" expl="postcondition">
+      <transf name="inline_goal" >
+       <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0" expl="postcondition">
+       <transf name="split_all_full" >
+        <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.0" expl="postcondition">
+        <transf name="split_vc" >
+         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.0.0" expl="postcondition">
          <proof prover="0" timelimit="5"><result status="valid" time="0.142776" steps="2266"/></proof>
          <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.056695" steps="19798"/></proof>
          </goal>
         </transf>
         </goal>
-        <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.1" expl="postcondition" proved="true">
-        <transf name="split_vc" proved="true" >
-         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.1.0" expl="postcondition" proved="true">
+        <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.1" expl="postcondition">
+        <transf name="split_vc" >
+         <goal name="minmax&#39;_list_spec&#39;vc.3.0.1.1.0.0.1.0" expl="postcondition">
          <proof prover="3"><result status="valid" time="1.609683" steps="115716"/></proof>
          </goal>
         </transf>
@@ -474,32 +440,32 @@
     </goal>
    </transf>
    </goal>
-   <goal name="minmax&#39;_list_spec&#39;vc.3.1" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="minmax&#39;_list_spec&#39;vc.3.1.0" expl="postcondition" proved="true">
+   <goal name="minmax&#39;_list_spec&#39;vc.3.1" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="minmax&#39;_list_spec&#39;vc.3.1.0" expl="postcondition">
     <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.011911" steps="6"/></proof>
     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.044537" steps="22369"/></proof>
     </goal>
-    <goal name="minmax&#39;_list_spec&#39;vc.3.1.1" expl="postcondition" proved="true">
-    <transf name="split_vc" proved="true" >
-     <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0" expl="postcondition" proved="true">
-     <transf name="inline_goal" proved="true" >
-      <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0.0" expl="postcondition" proved="true">
-      <transf name="split_all_full" proved="true" >
-       <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0.0.0" expl="postcondition" proved="true">
+    <goal name="minmax&#39;_list_spec&#39;vc.3.1.1" expl="postcondition">
+    <transf name="split_vc" >
+     <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0" expl="postcondition">
+     <transf name="inline_goal" >
+      <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0.0" expl="postcondition">
+      <transf name="split_all_full" >
+       <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.0.0.0" expl="postcondition">
        <proof prover="3"><result status="valid" time="0.372296" steps="58425"/></proof>
        </goal>
       </transf>
       </goal>
      </transf>
      </goal>
-     <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1" expl="postcondition" proved="true">
-     <transf name="split_vc" proved="true" >
-      <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0" expl="postcondition" proved="true">
-      <transf name="inline_goal" proved="true" >
-       <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0.0" expl="postcondition" proved="true">
-       <transf name="split_all_full" proved="true" >
-        <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0.0.0" expl="postcondition" proved="true">
+     <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1" expl="postcondition">
+     <transf name="split_vc" >
+      <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0" expl="postcondition">
+      <transf name="inline_goal" >
+       <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0.0" expl="postcondition">
+       <transf name="split_all_full" >
+        <goal name="minmax&#39;_list_spec&#39;vc.3.1.1.1.0.0.0" expl="postcondition">
         <proof prover="3"><result status="valid" time="0.365650" steps="58225"/></proof>
         </goal>
        </transf>
@@ -516,59 +482,59 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.minmax&#39;vc" expl="VC for minmax" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="minmax&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.minmax&#39;vc" expl="VC for minmax">
+ <transf name="split_vc" >
+  <goal name="minmax&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.010528" steps="65"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.064244" steps="20269"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.1" expl="variant decrease" proved="true">
+  <goal name="minmax&#39;vc.1" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.018027" steps="99"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.027698" steps="17207"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.2" expl="precondition" proved="true">
+  <goal name="minmax&#39;vc.2" expl="precondition">
   <proof prover="0"><result status="valid" time="0.018812" steps="97"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.064152" steps="22529"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.3" expl="postcondition" proved="true">
+  <goal name="minmax&#39;vc.3" expl="postcondition">
   <proof prover="1"><result status="valid" time="0.052556" steps="125798"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.068062" steps="19712"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.4" expl="precondition" proved="true">
+  <goal name="minmax&#39;vc.4" expl="precondition">
   <proof prover="0"><result status="valid" time="0.013548" steps="20"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.039050" steps="18406"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.5" expl="variant decrease" proved="true">
+  <goal name="minmax&#39;vc.5" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.014610" steps="65"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.057871" steps="20275"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.6" expl="variant decrease" proved="true">
+  <goal name="minmax&#39;vc.6" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.017841" steps="99"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.026669" steps="17213"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.7" expl="precondition" proved="true">
+  <goal name="minmax&#39;vc.7" expl="precondition">
   <proof prover="0"><result status="valid" time="0.018177" steps="97"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.064185" steps="22573"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.8" expl="postcondition" proved="true">
+  <goal name="minmax&#39;vc.8" expl="postcondition">
   <proof prover="1"><result status="valid" time="0.050874" steps="125602"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.059562" steps="19751"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.9" expl="precondition" proved="true">
+  <goal name="minmax&#39;vc.9" expl="precondition">
   <proof prover="0"><result status="valid" time="0.011814" steps="20"/></proof>
   <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.056236" steps="18412"/></proof>
   </goal>
-  <goal name="minmax&#39;vc.10" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="minmax&#39;vc.10.0" expl="postcondition" proved="true">
+  <goal name="minmax&#39;vc.10" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="minmax&#39;vc.10.0" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.014219" steps="7"/></proof>
    <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.038243" steps="17373"/></proof>
    </goal>
-   <goal name="minmax&#39;vc.10.1" expl="postcondition" proved="true">
+   <goal name="minmax&#39;vc.10.1" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.013125" steps="13"/></proof>
    <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.051465" steps="19203"/></proof>
    </goal>
-   <goal name="minmax&#39;vc.10.2" expl="postcondition" proved="true">
+   <goal name="minmax&#39;vc.10.2" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.005950" steps="13"/></proof>
    <proof prover="3" timelimit="5" memlimit="1000"><result status="valid" time="0.055630" steps="19210"/></proof>
    </goal>
@@ -576,119 +542,119 @@
   </goal>
  </transf>
  </goal>
- <goal name="Make.alphabeta&#39;vc" expl="VC for alphabeta" proved="true">
- <transf name="split_vc" proved="true" >
-  <goal name="alphabeta&#39;vc.0" expl="variant decrease" proved="true">
+ <goal name="Make.alphabeta&#39;vc" expl="VC for alphabeta">
+ <transf name="split_vc" >
+  <goal name="alphabeta&#39;vc.0" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.024755" steps="247"/></proof>
   <proof prover="2"><result status="valid" time="0.065053" steps="27248"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.1" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.1" expl="precondition">
   <proof prover="0"><result status="valid" time="0.010490" steps="12"/></proof>
   <proof prover="2"><result status="valid" time="0.053961" steps="24312"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.2" expl="variant decrease" proved="true">
+  <goal name="alphabeta&#39;vc.2" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.090739" steps="1405"/></proof>
   <proof prover="2"><result status="valid" time="0.081358" steps="29725"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.3" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.3" expl="precondition">
   <proof prover="0"><result status="valid" time="0.039685" steps="497"/></proof>
   <proof prover="2"><result status="valid" time="0.088021" steps="29360"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.4" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.4" expl="precondition">
   <proof prover="0"><result status="valid" time="0.015251" steps="50"/></proof>
   <proof prover="2"><result status="valid" time="0.056341" steps="25599"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.5" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.5" expl="precondition">
   <proof prover="0"><result status="valid" time="0.030924" steps="407"/></proof>
   <proof prover="2"><result status="valid" time="0.071865" steps="29550"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.6" expl="precondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="alphabeta&#39;vc.6.0" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.6" expl="precondition">
+  <transf name="split_vc" >
+   <goal name="alphabeta&#39;vc.6.0" expl="precondition">
    <proof prover="0"><result status="valid" time="0.039186" steps="471"/></proof>
    <proof prover="2"><result status="valid" time="0.078194" steps="29184"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.6.1" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.6.1" expl="precondition">
    <proof prover="0"><result status="valid" time="0.000001" steps="39"/></proof>
    <proof prover="2"><result status="valid" time="0.059979" steps="25651"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.6.2" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.6.2" expl="precondition">
    <proof prover="3"><result status="valid" time="0.244155" steps="50208"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.6.3" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.6.3" expl="precondition">
    <proof prover="0" timelimit="5"><result status="valid" time="1.600171" steps="24913"/></proof>
    <proof prover="2"><result status="valid" time="0.154422" steps="41292"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.6.4" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.6.4" expl="precondition">
    <proof prover="0"><result status="valid" time="0.005424" steps="24"/></proof>
    <proof prover="2"><result status="valid" time="0.030439" steps="24881"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.6.5" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.6.5" expl="precondition">
    <proof prover="0"><result status="valid" time="0.012323" steps="45"/></proof>
    <proof prover="2"><result status="valid" time="0.056431" steps="25688"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.6.6" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.6.6" expl="precondition">
    <proof prover="0"><result status="valid" time="0.012301" steps="43"/></proof>
    <proof prover="2"><result status="valid" time="0.067599" steps="25647"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.7" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="alphabeta&#39;vc.7.0" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.7.0.0" expl="postcondition" proved="true">
+  <goal name="alphabeta&#39;vc.7" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="alphabeta&#39;vc.7.0" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.7.0.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.019809" steps="33"/></proof>
     <proof prover="2"><result status="valid" time="0.064533" steps="25898"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.7.0.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.7.0.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.046616" steps="669"/></proof>
     <proof prover="2"><result status="valid" time="0.071275" steps="32110"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.7.1" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.7.1" expl="postcondition">
    <proof prover="1" timelimit="1"><result status="valid" time="0.008697" steps="46182"/></proof>
    <proof prover="2"><result status="valid" time="0.125549" steps="37491"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.7.2" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.7.2" expl="postcondition">
    <proof prover="1"><result status="valid" time="0.018371" steps="110085"/></proof>
    <proof prover="2"><result status="valid" time="0.176819" steps="42112"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.7.3" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.7.3" expl="postcondition">
    <proof prover="1" timelimit="1"><result status="valid" time="0.027307" steps="111054"/></proof>
    <proof prover="2"><result status="valid" time="0.179854" steps="44842"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.7.4" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.7.4.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.7.4" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.7.4.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.011957" steps="22"/></proof>
     <proof prover="2"><result status="valid" time="0.049069" steps="25822"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.7.4.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.7.4.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.092479" steps="1466"/></proof>
     <proof prover="2"><result status="valid" time="0.108342" steps="31923"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.7.5" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.7.5.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.7.5" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.7.5.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.015132" steps="38"/></proof>
     <proof prover="2"><result status="valid" time="0.059746" steps="26518"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.7.5.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.7.5.1" expl="postcondition">
     <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="1.219660" steps="131674"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.7.6" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.7.6.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.7.6" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.7.6.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.011570" steps="21"/></proof>
     <proof prover="2"><result status="valid" time="0.067202" steps="25822"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.7.6.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.7.6.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.013605" steps="14"/></proof>
     <proof prover="2"><result status="valid" time="0.061034" steps="26013"/></proof>
     </goal>
@@ -696,148 +662,148 @@
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.8" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="alphabeta&#39;vc.8.0" expl="postcondition" proved="true">
+  <goal name="alphabeta&#39;vc.8" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="alphabeta&#39;vc.8.0" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.026461" steps="523"/></proof>
    <proof prover="2"><result status="valid" time="0.048080" steps="26217"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.8.1" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.8.1" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.136961" steps="2137"/></proof>
    <proof prover="2"><result status="valid" time="0.074098" steps="31993"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.9" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.9" expl="precondition">
   <proof prover="0"><result status="valid" time="0.012530" steps="21"/></proof>
   <proof prover="2"><result status="valid" time="0.038204" steps="24210"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.10" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.10" expl="precondition">
   <proof prover="0"><result status="valid" time="0.013964" steps="57"/></proof>
   <proof prover="2"><result status="valid" time="0.040397" steps="23783"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.11" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.11" expl="precondition">
   <proof prover="0"><result status="valid" time="0.000001" steps="8"/></proof>
   <proof prover="2"><result status="valid" time="0.028532" steps="23385"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.12" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.12" expl="precondition">
   <proof prover="0"><result status="valid" time="0.013233" steps="19"/></proof>
   <proof prover="2"><result status="valid" time="0.043827" steps="24658"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.13" expl="variant decrease" proved="true">
+  <goal name="alphabeta&#39;vc.13" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.025423" steps="247"/></proof>
   <proof prover="2"><result status="valid" time="0.056964" steps="27223"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.14" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.14" expl="precondition">
   <proof prover="0"><result status="valid" time="0.010843" steps="12"/></proof>
   <proof prover="2"><result status="valid" time="0.037076" steps="24309"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.15" expl="variant decrease" proved="true">
+  <goal name="alphabeta&#39;vc.15" expl="variant decrease">
   <proof prover="0"><result status="valid" time="0.078262" steps="1424"/></proof>
   <proof prover="2"><result status="valid" time="0.069209" steps="29693"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.16" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.16" expl="precondition">
   <proof prover="0"><result status="valid" time="0.042630" steps="564"/></proof>
   <proof prover="2"><result status="valid" time="0.059533" steps="29340"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.17" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.17" expl="precondition">
   <proof prover="0"><result status="valid" time="0.015500" steps="52"/></proof>
   <proof prover="2"><result status="valid" time="0.058004" steps="25593"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.18" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.18" expl="precondition">
   <proof prover="0"><result status="valid" time="0.049590" steps="605"/></proof>
   <proof prover="2"><result status="valid" time="0.060344" steps="29511"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.19" expl="precondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="alphabeta&#39;vc.19.0" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.19" expl="precondition">
+  <transf name="split_vc" >
+   <goal name="alphabeta&#39;vc.19.0" expl="precondition">
    <proof prover="1"><result status="valid" time="0.029598" steps="109483"/></proof>
    <proof prover="2"><result status="valid" time="0.079137" steps="25645"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.19.1" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.1" expl="precondition">
    <proof prover="0" timelimit="5"><result status="valid" time="0.027815" steps="451"/></proof>
    <proof prover="2"><result status="valid" time="0.071398" steps="29169"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.19.2" expl="precondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.19.2.0" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.2" expl="precondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.19.2.0" expl="precondition">
     <proof prover="0"><result status="valid" time="0.588957" steps="8293"/></proof>
     <proof prover="3"><result status="valid" time="0.990069" steps="87816"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.19.2.1" expl="precondition" proved="true">
+    <goal name="alphabeta&#39;vc.19.2.1" expl="precondition">
     <proof prover="0"><result status="valid" time="0.514159" steps="8885"/></proof>
     <proof prover="2"><result status="valid" time="0.176552" steps="44276"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.19.3" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.3" expl="precondition">
    <proof prover="0"><result status="valid" time="0.019039" steps="44"/></proof>
    <proof prover="2"><result status="valid" time="0.067355" steps="25678"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.19.4" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.4" expl="precondition">
    <proof prover="0" timelimit="5"><result status="valid" time="0.015403" steps="42"/></proof>
    <proof prover="2"><result status="valid" time="0.049636" steps="25637"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.19.5" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.5" expl="precondition">
    <proof prover="0" timelimit="5"><result status="valid" time="1.844766" steps="29359"/></proof>
    <proof prover="2"><result status="valid" time="0.178497" steps="42200"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.19.6" expl="precondition" proved="true">
+   <goal name="alphabeta&#39;vc.19.6" expl="precondition">
    <proof prover="1"><result status="valid" time="0.016299" steps="7012"/></proof>
    <proof prover="2"><result status="valid" time="0.050764" steps="24874"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.20" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="alphabeta&#39;vc.20.0" expl="postcondition" proved="true">
+  <goal name="alphabeta&#39;vc.20" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="alphabeta&#39;vc.20.0" expl="postcondition">
    <proof prover="1"><result status="valid" time="0.017917" steps="49593"/></proof>
    <proof prover="2"><result status="valid" time="0.123530" steps="37147"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.20.1" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.20.1.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.20.1" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.20.1.0" expl="postcondition">
     <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.014344" steps="32"/></proof>
     <proof prover="1"><result status="valid" time="0.028626" steps="104469"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.20.1.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.20.1.1" expl="postcondition">
     <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.067927" steps="935"/></proof>
     <proof prover="3"><result status="valid" time="0.105809" steps="31065"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.20.2" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.20.2.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.20.2" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.20.2.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.007563" steps="37"/></proof>
     <proof prover="2"><result status="valid" time="0.063964" steps="26252"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.20.2.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.20.2.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.013783" steps="14"/></proof>
     <proof prover="2"><result status="valid" time="0.057864" steps="26006"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.20.3" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.20.3.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.20.3" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.20.3.0" expl="postcondition">
     <proof prover="0" timelimit="5"><result status="valid" time="0.009457" steps="38"/></proof>
     <proof prover="2"><result status="valid" time="0.086391" steps="26494"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.20.3.1" expl="postcondition" proved="true">
-    <transf name="split_vc" proved="true" >
-     <goal name="alphabeta&#39;vc.20.3.1.0" expl="postcondition" proved="true">
-     <transf name="split_vc" proved="true" >
-      <goal name="alphabeta&#39;vc.20.3.1.0.0" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.20.3.1" expl="postcondition">
+    <transf name="split_vc" >
+     <goal name="alphabeta&#39;vc.20.3.1.0" expl="postcondition">
+     <transf name="split_vc" >
+      <goal name="alphabeta&#39;vc.20.3.1.0.0" expl="postcondition">
       <proof prover="2"><result status="valid" time="0.254860" steps="53450"/></proof>
       <proof prover="3"><result status="valid" time="1.908097" steps="157182"/></proof>
       </goal>
-      <goal name="alphabeta&#39;vc.20.3.1.0.1" expl="postcondition" proved="true">
+      <goal name="alphabeta&#39;vc.20.3.1.0.1" expl="postcondition">
       <proof prover="3"><result status="valid" time="0.560391" steps="76022"/></proof>
       </goal>
      </transf>
      </goal>
-     <goal name="alphabeta&#39;vc.20.3.1.1" expl="postcondition" proved="true">
+     <goal name="alphabeta&#39;vc.20.3.1.1" expl="postcondition">
      <proof prover="0"><result status="valid" time="0.013164" steps="26"/></proof>
      <proof prover="2"><result status="valid" time="0.036491" steps="25069"/></proof>
      </goal>
@@ -845,36 +811,36 @@
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.20.4" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.20.4" expl="postcondition">
    <proof prover="2"><result status="valid" time="0.096853" steps="37133"/></proof>
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.20.4.0" expl="postcondition" proved="true">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.20.4.0" expl="postcondition">
     <proof prover="1"><result status="valid" time="0.018022" steps="42375"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.20.4.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.20.4.1" expl="postcondition">
     <proof prover="1"><result status="valid" time="0.020952" steps="44209"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.20.5" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.20.5.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.20.5" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.20.5.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.000001" steps="38"/></proof>
     <proof prover="2"><result status="valid" time="0.046387" steps="26514"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.20.5.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.20.5.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.005631" steps="14"/></proof>
     <proof prover="2"><result status="valid" time="0.056070" steps="26006"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.20.6" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.20.6.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.20.6" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.20.6.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.011599" steps="21"/></proof>
     <proof prover="2"><result status="valid" time="0.052812" steps="25822"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.20.6.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.20.6.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.134625" steps="2050"/></proof>
     <proof prover="2"><result status="valid" time="0.119619" steps="31912"/></proof>
     </goal>
@@ -882,143 +848,143 @@
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.21" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="alphabeta&#39;vc.21.0" expl="postcondition" proved="true">
+  <goal name="alphabeta&#39;vc.21" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="alphabeta&#39;vc.21.0" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.019251" steps="341"/></proof>
    <proof prover="2"><result status="valid" time="0.050156" steps="26217"/></proof>
    </goal>
-   <goal name="alphabeta&#39;vc.21.1" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.21.1" expl="postcondition">
    <proof prover="0"><result status="valid" time="0.129187" steps="1948"/></proof>
    <proof prover="2"><result status="valid" time="0.087408" steps="32279"/></proof>
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.22" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.22" expl="precondition">
   <proof prover="0"><result status="valid" time="0.012824" steps="21"/></proof>
   <proof prover="2"><result status="valid" time="0.046064" steps="24218"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.23" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.23" expl="precondition">
   <proof prover="0"><result status="valid" time="0.013339" steps="57"/></proof>
   <proof prover="2"><result status="valid" time="0.040639" steps="23791"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.24" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.24" expl="precondition">
   <proof prover="0" timelimit="5"><result status="valid" time="0.014425" steps="8"/></proof>
   <proof prover="2"><result status="valid" time="0.045176" steps="23392"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.25" expl="precondition" proved="true">
+  <goal name="alphabeta&#39;vc.25" expl="precondition">
   <proof prover="0"><result status="valid" time="0.000001" steps="19"/></proof>
   <proof prover="2"><result status="valid" time="0.054814" steps="24650"/></proof>
   </goal>
-  <goal name="alphabeta&#39;vc.26" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="alphabeta&#39;vc.26.0" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.26.0.0" expl="postcondition" proved="true">
+  <goal name="alphabeta&#39;vc.26" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="alphabeta&#39;vc.26.0" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.26.0.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.007124" steps="43"/></proof>
     <proof prover="2"><result status="valid" time="0.062391" steps="24152"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.0.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.0.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.012037" steps="16"/></proof>
     <proof prover="2"><result status="valid" time="0.036720" steps="24248"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.0.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.0.2" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.011949" steps="16"/></proof>
     <proof prover="2"><result status="valid" time="0.037677" steps="24255"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.26.1" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.26.1.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.26.1" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.26.1.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.013742" steps="43"/></proof>
     <proof prover="2"><result status="valid" time="0.047407" steps="24180"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.1.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.1.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.012437" steps="16"/></proof>
     <proof prover="2"><result status="valid" time="0.042041" steps="24248"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.1.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.1.2" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.011630" steps="16"/></proof>
     <proof prover="2"><result status="valid" time="0.047655" steps="24255"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.26.2" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.26.2.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.26.2" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.26.2.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.011693" steps="14"/></proof>
     <proof prover="2"><result status="valid" time="0.054190" steps="23991"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.2.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.2.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.014254" steps="25"/></proof>
     <proof prover="2"><result status="valid" time="0.078969" steps="27212"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.2.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.2.2" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.007238" steps="25"/></proof>
     <proof prover="2"><result status="valid" time="0.100723" steps="27220"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.26.3" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.26.3.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.26.3" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.26.3.0" expl="postcondition">
     <proof prover="0" timelimit="5"><result status="valid" time="0.013203" steps="17"/></proof>
     <proof prover="2"><result status="valid" time="0.050355" steps="24308"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.3.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.3.1" expl="postcondition">
     <proof prover="0" timelimit="5"><result status="valid" time="0.013565" steps="26"/></proof>
     <proof prover="2"><result status="valid" time="0.090692" steps="27453"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.3.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.3.2" expl="postcondition">
     <proof prover="0" timelimit="5"><result status="valid" time="0.015037" steps="26"/></proof>
     <proof prover="2"><result status="valid" time="0.074930" steps="27457"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.26.4" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.26.4.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.26.4" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.26.4.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.012808" steps="28"/></proof>
     <proof prover="2"><result status="valid" time="0.053940" steps="23179"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.4.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.4.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.000001" steps="14"/></proof>
     <proof prover="2"><result status="valid" time="0.051147" steps="24248"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.4.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.4.2" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.011853" steps="14"/></proof>
     <proof prover="2"><result status="valid" time="0.047348" steps="24255"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.26.5" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.26.5.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.26.5" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.26.5.0" expl="postcondition">
     <proof prover="0" timelimit="5"><result status="valid" time="0.013744" steps="17"/></proof>
     <proof prover="2"><result status="valid" time="0.037320" steps="24363"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.5.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.5.1" expl="postcondition">
     <proof prover="0" timelimit="5"><result status="valid" time="0.000001" steps="25"/></proof>
     <proof prover="2"><result status="valid" time="0.068382" steps="27445"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.5.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.5.2" expl="postcondition">
     <proof prover="0" timelimit="5"><result status="valid" time="0.020499" steps="25"/></proof>
     <proof prover="2"><result status="valid" time="0.049374" steps="27457"/></proof>
     </goal>
    </transf>
    </goal>
-   <goal name="alphabeta&#39;vc.26.6" expl="postcondition" proved="true">
-   <transf name="split_vc" proved="true" >
-    <goal name="alphabeta&#39;vc.26.6.0" expl="postcondition" proved="true">
+   <goal name="alphabeta&#39;vc.26.6" expl="postcondition">
+   <transf name="split_vc" >
+    <goal name="alphabeta&#39;vc.26.6.0" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.012155" steps="16"/></proof>
     <proof prover="2"><result status="valid" time="0.054187" steps="23167"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.6.1" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.6.1" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.016723" steps="14"/></proof>
     <proof prover="2"><result status="valid" time="0.036904" steps="24248"/></proof>
     </goal>
-    <goal name="alphabeta&#39;vc.26.6.2" expl="postcondition" proved="true">
+    <goal name="alphabeta&#39;vc.26.6.2" expl="postcondition">
     <proof prover="0"><result status="valid" time="0.005733" steps="14"/></proof>
     <proof prover="2"><result status="valid" time="0.041207" steps="24255"/></proof>
     </goal>
@@ -1026,11 +992,45 @@
    </goal>
   </transf>
   </goal>
-  <goal name="alphabeta&#39;vc.27" expl="postcondition" proved="true">
+  <goal name="alphabeta&#39;vc.27" expl="postcondition">
   <proof prover="0"><result status="valid" time="0.262308" steps="2115"/></proof>
   <proof prover="2"><result status="valid" time="0.104364" steps="30994"/></proof>
   </goal>
  </transf>
+ </goal>
+</theory>
+<theory name="Height">
+ <goal name="height&#39;vc" expl="VC for height">
+ <transf name="split_vc" >
+  <goal name="height&#39;vc.0" expl="variant decrease">
+  <transf name="split_vc" >
+   <goal name="height&#39;vc.0.0" expl="variant decrease">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.008950" steps="6"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.035826" steps="3129"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="height&#39;vc.1" expl="postcondition">
+  <transf name="split_vc" >
+   <goal name="height&#39;vc.1.0" expl="postcondition">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.007780" steps="4"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.000001" steps="2696"/></proof>
+   </goal>
+   <goal name="height&#39;vc.1.1" expl="postcondition">
+   <proof prover="0" timelimit="10" memlimit="1500"><result status="valid" time="0.008293" steps="6"/></proof>
+   <proof prover="2" timelimit="10" memlimit="1500"><result status="valid" time="0.013780" steps="2903"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="height_list&#39;vc" expl="VC for height_list">
+ <proof prover="0"><result status="valid" time="0.010816" steps="59"/></proof>
+ <proof prover="3"><result status="valid" time="0.023914" steps="2002"/></proof>
+ </goal>
+ <goal name="height_list_max&#39;vc" expl="VC for height_list_max">
+ <proof prover="0"><result status="valid" time="0.012711" steps="88"/></proof>
+ <proof prover="3"><result status="valid" time="0.015345" steps="3970"/></proof>
  </goal>
 </theory>
 </file>

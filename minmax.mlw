@@ -143,7 +143,7 @@ let rec lemma minmax'_list_min_in (f: 'a -> t) (l: list (arbre 'a)) (v:t) =
   end
 
 (* MINMAX LIST LEMMA MIN-MAX *)
-let rec lemma mimax'_list_max
+let rec lemma minmax'_list_max
   (f: 'a -> t) (l: list (arbre 'a)) (v:t) =
   variant { l }
   ensures {
@@ -155,12 +155,12 @@ let rec lemma mimax'_list_max
   | Cons e l' ->
     let v1 = minmax' f e false in
     if v1 >= v then
-      mimax'_list_max f l' v1
+      minmax'_list_max f l' v1
     else
-      mimax'_list_max f l' v
+      minmax'_list_max f l' v
   end
 
-let rec lemma mimax'_list_min
+let rec lemma minmax'_list_min
   (f: 'a -> t) (l: list (arbre 'a)) (v:t) =
   variant { l }
   ensures {
@@ -172,9 +172,9 @@ let rec lemma mimax'_list_min
   | Cons e l' ->
     let v1 = minmax' f e true in
     if v1 <= v then
-      mimax'_list_min f l' v1
+      minmax'_list_min f l' v1
     else
-      mimax'_list_min f l' v
+      minmax'_list_min f l' v
   end
  
 
